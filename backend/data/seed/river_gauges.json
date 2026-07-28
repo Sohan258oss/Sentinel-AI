@@ -1,0 +1,100 @@
+{
+  "_meta": {
+    "synthetic": true,
+    "notice": "SIMULATED DATA. Rivers and gauge locations correspond to real Kerala waterways (Periyar, Muvattupuzha, Chalakudy, Pamba), but all water levels, danger thresholds and trends are generated for demonstration and must not be used for any real flood decision.",
+    "region": "Central Kerala river basins, India",
+    "schema_version": 1
+  },
+  "gauges": [
+    {
+      "gauge_id": "GAU-PER-01",
+      "river": "Periyar",
+      "station": "Neeleeswaram",
+      "latitude": 10.1631,
+      "longitude": 76.4022,
+      "current_level_m": 6.42,
+      "warning_level_m": 6.0,
+      "danger_level_m": 7.2,
+      "highest_recorded_m": 9.1,
+      "trend": "rising",
+      "rate_of_change_m_per_hr": 0.18,
+      "upstream_dam": "Idukki",
+      "dam_spill_active": true
+    },
+    {
+      "gauge_id": "GAU-PER-02",
+      "river": "Periyar",
+      "station": "Aluva",
+      "latitude": 10.1004,
+      "longitude": 76.357,
+      "current_level_m": 4.88,
+      "warning_level_m": 4.5,
+      "danger_level_m": 5.6,
+      "highest_recorded_m": 7.4,
+      "trend": "rising",
+      "rate_of_change_m_per_hr": 0.22,
+      "upstream_dam": "Idukki",
+      "dam_spill_active": true
+    },
+    {
+      "gauge_id": "GAU-MUV-03",
+      "river": "Muvattupuzha",
+      "station": "Muvattupuzha Town",
+      "latitude": 9.9899,
+      "longitude": 76.578,
+      "current_level_m": 3.71,
+      "warning_level_m": 4.2,
+      "danger_level_m": 5.0,
+      "highest_recorded_m": 6.8,
+      "trend": "steady",
+      "rate_of_change_m_per_hr": 0.03,
+      "upstream_dam": "Malankara",
+      "dam_spill_active": false
+    },
+    {
+      "gauge_id": "GAU-CHA-04",
+      "river": "Chalakudy",
+      "station": "Chalakudy",
+      "latitude": 10.305,
+      "longitude": 76.335,
+      "current_level_m": 5.95,
+      "warning_level_m": 5.5,
+      "danger_level_m": 6.5,
+      "highest_recorded_m": 8.2,
+      "trend": "rising",
+      "rate_of_change_m_per_hr": 0.14,
+      "upstream_dam": "Peringalkuthu",
+      "dam_spill_active": true
+    },
+    {
+      "gauge_id": "GAU-PAM-05",
+      "river": "Pamba",
+      "station": "Thumpamon",
+      "latitude": 9.2833,
+      "longitude": 76.7,
+      "current_level_m": 2.94,
+      "warning_level_m": 3.8,
+      "danger_level_m": 4.6,
+      "highest_recorded_m": 7.9,
+      "trend": "falling",
+      "rate_of_change_m_per_hr": -0.05,
+      "upstream_dam": "Kakki",
+      "dam_spill_active": false
+    },
+    {
+      "gauge_id": "GAU-PER-06",
+      "river": "Periyar",
+      "station": "Kalady",
+      "latitude": 10.1631,
+      "longitude": 76.4394,
+      "current_level_m": 5.61,
+      "warning_level_m": 5.2,
+      "danger_level_m": 6.3,
+      "highest_recorded_m": 8.0,
+      "trend": "rising",
+      "rate_of_change_m_per_hr": 0.2,
+      "upstream_dam": "Idukki",
+      "dam_spill_active": true
+    }
+  ]
+}

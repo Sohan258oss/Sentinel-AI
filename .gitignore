@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Environment
+.env
+.env.local
+
+# Vector store / runtime artifacts
+backend/.chroma/
+backend/data/uploads/
+backend/data/runs/
+backend/ml/artifacts/*.pt
+backend/ml/datasets/
+
+# Node
+node_modules/
+frontend/dist/
+frontend/.vite/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/

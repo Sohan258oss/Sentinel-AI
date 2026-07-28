@@ -1,0 +1,38 @@
+# SentinelAI backend dependencies.
+# Pins are lower-bounded rather than exact where a wheel must exist for the
+# host Python (3.13); exact pins are reserved for libraries whose APIs we
+# depend on tightly (LangGraph, LangChain).
+
+# ---- Web / API -------------------------------------------------------------
+fastapi>=0.115.6
+uvicorn[standard]>=0.34.0
+python-multipart>=0.0.20
+sse-starlette>=2.2.1
+
+# ---- Config / validation ---------------------------------------------------
+pydantic>=2.10.4
+pydantic-settings>=2.7.0
+python-dotenv>=1.0.1
+
+# ---- Agentic core ----------------------------------------------------------
+langchain>=0.3.14
+langchain-core>=0.3.29
+langchain-community>=0.3.14
+langgraph>=0.2.62
+langchain-google-genai>=2.0.8
+
+# ---- RAG -------------------------------------------------------------------
+chromadb>=0.6.1
+fastembed>=0.5.0
+pypdf>=5.1.0
+
+# ---- Vision / deep learning ------------------------------------------------
+torch>=2.6.0
+torchvision>=0.21.0
+pillow>=11.1.0
+
+# ---- Infrastructure --------------------------------------------------------
+httpx>=0.28.1
+tenacity>=9.0.0
+structlog>=24.4.0
+orjson>=3.10.14

@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------------
+   SentinelAI command centre theme.
+
+   Deliberately not a SaaS dashboard palette. Emergency operations rooms run
+   dark because operators watch screens for hours in low light, and status is
+   carried by saturated signal colours against a desaturated field so an
+   escalation is visible peripherally, without reading it.
+--------------------------------------------------------------------------- */
+
+@theme {
+  --color-void: #05070d;
+  --color-abyss: #080b14;
+  --color-panel: #0c1120;
+  --color-panel-raised: #111829;
+  --color-edge: #1b2438;
+  --color-edge-bright: #2a3752;
+
+  --color-ink: #e8edf7;
+  --color-ink-dim: #94a3bd;
+  --color-ink-faint: #5c6a85;
+
+  --color-signal: #22d3ee;
+  --color-signal-deep: #0891b2;
+
+  --color-sev-informational: #38bdf8;
+  --color-sev-minor: #4ade80;
+  --color-sev-moderate: #facc15;
+  --color-sev-severe: #fb923c;
+  --color-sev-catastrophic: #ef4444;
+
+  --font-mono: "JetBrains Mono", "SF Mono", "Menlo", ui-monospace, monospace;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background: var(--color-void);
+  color: var(--color-ink);
+  font-feature-settings: "tnum";
+  overflow: hidden;
+}
+
+/* Tactical display surface. */
+.grid-field {
+  background-image:
+    linear-gradient(rgba(34, 211, 238, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.045) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(34, 211, 238, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 9px rgba(34, 211, 238, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 211, 238, 0);
+  }
+}
+.pulse-ring {
+  animation: pulse-ring 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes trace-in {
+  from {
+    opacity: 0;
+    transform: translateX(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.trace-in {
+  animation: trace-in 0.22s ease-out;
+}
+
+@keyframes sweep-line {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.radar-sweep {
+  transform-origin: center;
+  animation: sweep-line 6s linear infinite;
+}
+
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: -14;
+  }
+}
+.flow-line {
+  stroke-dasharray: 4 3;
+  animation: dash-flow 0.9s linear infinite;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-edge-bright);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3d4d6e;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

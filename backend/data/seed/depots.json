@@ -1,0 +1,177 @@
+{
+  "_meta": {
+    "synthetic": true,
+    "notice": "SIMULATED DATA. Depot organisations reflect the real multi-agency structure of Indian disaster response (State Disaster Management Authority, NDRF, municipal stores, NGO warehouses, hospital pharmacies) but all stock levels, identifiers and locations are generated for demonstration.",
+    "region": "Ernakulam District and neighbouring districts, Kerala, India",
+    "schema_version": 1,
+    "sdg_note": "Multi-organisation ownership is deliberate — it is what makes SDG 17 (Partnerships) demonstrable rather than decorative."
+  },
+  "depots": [
+    {
+      "depot_id": "DEP-KSDMA-01",
+      "name": "Kalamassery State Disaster Response Store",
+      "organization": "Kerala State Disaster Management Authority",
+      "organization_type": "government",
+      "latitude": 10.0532,
+      "longitude": 76.3245,
+      "dispatch_delay_minutes": 25,
+      "operational": true,
+      "stock": [
+        { "resource_type": "rescue_boat", "quantity": 18, "reserved": 3, "unit": "boats" },
+        { "resource_type": "food_packet", "quantity": 24000, "reserved": 2000, "unit": "packets" },
+        { "resource_type": "drinking_water_litre", "quantity": 60000, "reserved": 5000, "unit": "litres" },
+        { "resource_type": "blanket", "quantity": 9000, "reserved": 500, "unit": "blankets" },
+        { "resource_type": "tent", "quantity": 600, "reserved": 40, "unit": "tents" },
+        { "resource_type": "generator", "quantity": 45, "reserved": 5, "unit": "units" },
+        { "resource_type": "water_pump", "quantity": 60, "reserved": 8, "unit": "pumps" }
+      ]
+    },
+    {
+      "depot_id": "DEP-NDRF-02",
+      "name": "NDRF 4th Battalion Forward Base",
+      "organization": "National Disaster Response Force",
+      "organization_type": "ndrf",
+      "latitude": 10.1521,
+      "longitude": 76.3903,
+      "dispatch_delay_minutes": 15,
+      "operational": true,
+      "stock": [
+        { "resource_type": "rescue_boat", "quantity": 32, "reserved": 6, "unit": "boats" },
+        { "resource_type": "search_rescue_team", "quantity": 14, "reserved": 2, "unit": "teams" },
+        { "resource_type": "helicopter", "quantity": 3, "reserved": 1, "unit": "aircraft" },
+        { "resource_type": "medical_team", "quantity": 6, "reserved": 1, "unit": "teams" },
+        { "resource_type": "generator", "quantity": 20, "reserved": 2, "unit": "units" }
+      ]
+    },
+    {
+      "depot_id": "DEP-MUNI-03",
+      "name": "Kochi Corporation Central Relief Store",
+      "organization": "Kochi Municipal Corporation",
+      "organization_type": "municipal",
+      "latitude": 9.9752,
+      "longitude": 76.2811,
+      "dispatch_delay_minutes": 35,
+      "operational": true,
+      "stock": [
+        { "resource_type": "food_packet", "quantity": 15000, "reserved": 1200, "unit": "packets" },
+        { "resource_type": "drinking_water_litre", "quantity": 38000, "reserved": 3000, "unit": "litres" },
+        { "resource_type": "blanket", "quantity": 5200, "reserved": 300, "unit": "blankets" },
+        { "resource_type": "tent", "quantity": 320, "reserved": 20, "unit": "tents" },
+        { "resource_type": "water_pump", "quantity": 28, "reserved": 4, "unit": "pumps" }
+      ]
+    },
+    {
+      "depot_id": "DEP-HOSP-04",
+      "name": "Ernakulam District Hospital Central Pharmacy",
+      "organization": "Ernakulam District General Hospital",
+      "organization_type": "hospital",
+      "latitude": 9.9816,
+      "longitude": 76.2839,
+      "dispatch_delay_minutes": 20,
+      "operational": true,
+      "stock": [
+        { "resource_type": "medicine_kit", "quantity": 2400, "reserved": 200, "unit": "kits" },
+        { "resource_type": "blood_unit", "quantity": 480, "reserved": 90, "unit": "units" },
+        { "resource_type": "ambulance", "quantity": 22, "reserved": 5, "unit": "vehicles" },
+        { "resource_type": "medical_team", "quantity": 9, "reserved": 2, "unit": "teams" }
+      ]
+    },
+    {
+      "depot_id": "DEP-NGO-05",
+      "name": "Sahaya Relief Network Warehouse",
+      "organization": "Sahaya Relief Network",
+      "organization_type": "ngo",
+      "latitude": 10.0104,
+      "longitude": 76.3521,
+      "dispatch_delay_minutes": 45,
+      "operational": true,
+      "stock": [
+        { "resource_type": "food_packet", "quantity": 18500, "reserved": 800, "unit": "packets" },
+        { "resource_type": "drinking_water_litre", "quantity": 22000, "reserved": 1000, "unit": "litres" },
+        { "resource_type": "blanket", "quantity": 7400, "reserved": 200, "unit": "blankets" },
+        { "resource_type": "medicine_kit", "quantity": 900, "reserved": 50, "unit": "kits" },
+        { "resource_type": "volunteer", "quantity": 380, "reserved": 40, "unit": "people" }
+      ]
+    },
+    {
+      "depot_id": "DEP-FIRE-06",
+      "name": "Ernakulam Fire and Rescue Services Station",
+      "organization": "Kerala Fire and Rescue Services",
+      "organization_type": "fire_service",
+      "latitude": 9.9889,
+      "longitude": 76.2955,
+      "dispatch_delay_minutes": 10,
+      "operational": true,
+      "stock": [
+        { "resource_type": "fire_tender", "quantity": 12, "reserved": 2, "unit": "vehicles" },
+        { "resource_type": "rescue_boat", "quantity": 9, "reserved": 1, "unit": "boats" },
+        { "resource_type": "search_rescue_team", "quantity": 8, "reserved": 1, "unit": "teams" },
+        { "resource_type": "water_pump", "quantity": 34, "reserved": 3, "unit": "pumps" }
+      ]
+    },
+    {
+      "depot_id": "DEP-MUNI-07",
+      "name": "Aluva Municipal Supply Point",
+      "organization": "Aluva Municipality",
+      "organization_type": "municipal",
+      "latitude": 10.1067,
+      "longitude": 76.3521,
+      "dispatch_delay_minutes": 20,
+      "operational": true,
+      "stock": [
+        { "resource_type": "food_packet", "quantity": 6200, "reserved": 400, "unit": "packets" },
+        { "resource_type": "drinking_water_litre", "quantity": 14000, "reserved": 800, "unit": "litres" },
+        { "resource_type": "blanket", "quantity": 2100, "reserved": 100, "unit": "blankets" },
+        { "resource_type": "rescue_boat", "quantity": 6, "reserved": 0, "unit": "boats" }
+      ]
+    },
+    {
+      "depot_id": "DEP-GOV-08",
+      "name": "Thrissur District Reserve Warehouse",
+      "organization": "Thrissur District Administration",
+      "organization_type": "government",
+      "latitude": 10.5276,
+      "longitude": 76.2144,
+      "dispatch_delay_minutes": 60,
+      "operational": true,
+      "stock": [
+        { "resource_type": "food_packet", "quantity": 31000, "reserved": 1500, "unit": "packets" },
+        { "resource_type": "drinking_water_litre", "quantity": 45000, "reserved": 2000, "unit": "litres" },
+        { "resource_type": "blanket", "quantity": 11000, "reserved": 600, "unit": "blankets" },
+        { "resource_type": "tent", "quantity": 780, "reserved": 30, "unit": "tents" },
+        { "resource_type": "generator", "quantity": 26, "reserved": 2, "unit": "units" }
+      ]
+    },
+    {
+      "depot_id": "DEP-HOSP-09",
+      "name": "Kottayam Regional Blood and Supply Centre",
+      "organization": "Kottayam Regional Referral Hospital",
+      "organization_type": "hospital",
+      "latitude": 9.5916,
+      "longitude": 76.5222,
+      "dispatch_delay_minutes": 40,
+      "operational": true,
+      "stock": [
+        { "resource_type": "blood_unit", "quantity": 720, "reserved": 120, "unit": "units" },
+        { "resource_type": "medicine_kit", "quantity": 1600, "reserved": 100, "unit": "kits" },
+        { "resource_type": "ambulance", "quantity": 16, "reserved": 3, "unit": "vehicles" },
+        { "resource_type": "medical_team", "quantity": 7, "reserved": 1, "unit": "teams" }
+      ]
+    },
+    {
+      "depot_id": "DEP-VOL-10",
+      "name": "Kerala Youth Volunteer Mobilisation Hub",
+      "organization": "Kerala Youth Volunteer Corps",
+      "organization_type": "volunteer_group",
+      "latitude": 10.0298,
+      "longitude": 76.3082,
+      "dispatch_delay_minutes": 50,
+      "operational": true,
+      "stock": [
+        { "resource_type": "volunteer", "quantity": 1250, "reserved": 150, "unit": "people" },
+        { "resource_type": "food_packet", "quantity": 4200, "reserved": 200, "unit": "packets" },
+        { "resource_type": "rescue_boat", "quantity": 4, "reserved": 0, "unit": "boats" }
+      ]
+    }
+  ]
+}

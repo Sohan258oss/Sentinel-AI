@@ -1,0 +1,155 @@
+{
+  "semantic": [
+    {
+      "lesson_id": "LSN-3FF3E598",
+      "hazard_type": "flood",
+      "region": "Aluva",
+      "point": {
+        "latitude": 10.1004,
+        "longitude": 76.357
+      },
+      "severity_seen": "severe",
+      "lesson": "Aluva: shelter capacity was short by 4,574 during a severe flood. Pre-position additional capacity.",
+      "evidence": "Flood \u2014 severe \u2014 Aluva",
+      "source_incident_id": "INC-FLD-10530A",
+      "times_reinforced": 9,
+      "created_at": "2026-07-28T09:25:04.769735Z"
+    },
+    {
+      "lesson_id": "LSN-E4C5173D",
+      "hazard_type": "flood",
+      "region": "Aluva",
+      "point": {
+        "latitude": 10.1004,
+        "longitude": 76.357
+      },
+      "severity_seen": "severe",
+      "lesson": "Aluva: these designated shelters are flood-exposed and should be reclassified: Aluva Government Higher Secondary School Camp, Nedumbassery Community Relief Centre, Angamaly Parish Community Centre.",
+      "evidence": "Flood \u2014 severe \u2014 Aluva",
+      "source_incident_id": "INC-FLD-10530A",
+      "times_reinforced": 9,
+      "created_at": "2026-07-28T09:25:04.770416Z"
+    },
+    {
+      "lesson_id": "LSN-46AF473E",
+      "hazard_type": "flood",
+      "region": "Aluva",
+      "point": {
+        "latitude": 10.1004,
+        "longitude": 76.357
+      },
+      "severity_seen": "severe",
+      "lesson": "Aluva: rescue_boat was short 55 for a severe flood. Increase pre-positioned stock.",
+      "evidence": "Flood \u2014 severe \u2014 Aluva",
+      "source_incident_id": "INC-FLD-10530A",
+      "times_reinforced": 27,
+      "created_at": "2026-07-28T09:25:04.770594Z"
+    },
+    {
+      "lesson_id": "LSN-EA6B49C1",
+      "hazard_type": "building_collapse",
+      "region": "Kochi",
+      "point": {
+        "latitude": 9.9312,
+        "longitude": 76.2673
+      },
+      "severity_seen": "catastrophic",
+      "lesson": "Kochi: reachable hospital capacity fell short by 21,565 beds during a building_collapse. Pre-arrange inter-district transfer.",
+      "evidence": "Building Collapse \u2014 catastrophic \u2014 Kochi",
+      "source_incident_id": "INC-COL-FE9BC2",
+      "times_reinforced": 1,
+      "created_at": "2026-07-28T09:25:43.185441Z"
+    },
+    {
+      "lesson_id": "LSN-D4785A3C",
+      "hazard_type": "building_collapse",
+      "region": "Kochi",
+      "point": {
+        "latitude": 9.9312,
+        "longitude": 76.2673
+      },
+      "severity_seen": "catastrophic",
+      "lesson": "Kochi: ambulance was short 2,792 for a catastrophic building_collapse. Increase pre-positioned stock.",
+      "evidence": "Building Collapse \u2014 catastrophic \u2014 Kochi",
+      "source_incident_id": "INC-COL-FE9BC2",
+      "times_reinforced": 3,
+      "created_at": "2026-07-28T09:25:43.185794Z"
+    },
+    {
+      "lesson_id": "LSN-DA566A1B",
+      "hazard_type": "heatwave",
+      "region": "Thrissur",
+      "point": {
+        "latitude": 10.5276,
+        "longitude": 76.2144
+      },
+      "severity_seen": "severe",
+      "lesson": "Thrissur: reachable hospital capacity fell short by 101 beds during a heatwave. Pre-arrange inter-district transfer.",
+      "evidence": "Heatwave \u2014 severe \u2014 Thrissur",
+      "source_incident_id": "INC-HEA-EA93A5",
+      "times_reinforced": 1,
+      "created_at": "2026-07-28T09:25:44.671006Z"
+    },
+    {
+      "lesson_id": "LSN-0F2EA073",
+      "hazard_type": "heatwave",
+      "region": "Thrissur",
+      "point": {
+        "latitude": 10.5276,
+        "longitude": 76.2144
+      },
+      "severity_seen": "severe",
+      "lesson": "Thrissur: ambulance was short 38 for a severe heatwave. Increase pre-positioned stock.",
+      "evidence": "Heatwave \u2014 severe \u2014 Thrissur",
+      "source_incident_id": "INC-HEA-EA93A5",
+      "times_reinforced": 1,
+      "created_at": "2026-07-28T09:25:44.671328Z"
+    },
+    {
+      "lesson_id": "LSN-87DB527E",
+      "hazard_type": "cyclone",
+      "region": "Fort Kochi",
+      "point": {
+        "latitude": 9.9658,
+        "longitude": 76.2422
+      },
+      "severity_seen": "severe",
+      "lesson": "Fort Kochi: shelter capacity was short by 3,605 during a severe cyclone. Pre-position additional capacity.",
+      "evidence": "Cyclone \u2014 severe \u2014 Fort Kochi",
+      "source_incident_id": "INC-CYC-FCB923",
+      "times_reinforced": 1,
+      "created_at": "2026-07-28T09:25:47.248285Z"
+    },
+    {
+      "lesson_id": "LSN-9397E311",
+      "hazard_type": "cyclone",
+      "region": "Fort Kochi",
+      "point": {
+        "latitude": 9.9658,
+        "longitude": 76.2422
+      },
+      "severity_seen": "severe",
+      "lesson": "Fort Kochi: these designated shelters are flood-exposed and should be reclassified: Fort Kochi Coastal Community Hall, Vypin Island Panchayat Shelter, Aluva Government Higher Secondary School Camp.",
+      "evidence": "Cyclone \u2014 severe \u2014 Fort Kochi",
+      "source_incident_id": "INC-CYC-FCB923",
+      "times_reinforced": 1,
+      "created_at": "2026-07-28T09:25:47.248700Z"
+    },
+    {
+      "lesson_id": "LSN-F19DDFF6",
+      "hazard_type": "cyclone",
+      "region": "Fort Kochi",
+      "point": {
+        "latitude": 9.9658,
+        "longitude": 76.2422
+      },
+      "severity_seen": "severe",
+      "lesson": "Fort Kochi: rescue_boat was short 39 for a severe cyclone. Increase pre-positioned stock.",
+      "evidence": "Cyclone \u2014 severe \u2014 Fort Kochi",
+      "source_incident_id": "INC-CYC-FCB923",
+      "times_reinforced": 3,
+      "created_at": "2026-07-28T09:25:47.248936Z"
+    }
+  ],
+  "updated_at": "2026-07-28T09:46:32.092175+00:00"
+}

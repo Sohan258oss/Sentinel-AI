@@ -1,0 +1,112 @@
+{
+  "labels": [
+    "collapsed_building",
+    "fire",
+    "flooded_area",
+    "no_damage",
+    "blocked_road"
+  ],
+  "dataset_classes": [
+    "collapsed_building",
+    "fire",
+    "flooded_areas",
+    "normal",
+    "traffic_incident"
+  ],
+  "val_accuracy": 0.9059,
+  "val_macro_f1": 0.8635,
+  "confusion_matrix": [
+    [
+      87,
+      0,
+      1,
+      2,
+      4
+    ],
+    [
+      1,
+      95,
+      2,
+      3,
+      1
+    ],
+    [
+      1,
+      2,
+      105,
+      1,
+      0
+    ],
+    [
+      21,
+      15,
+      23,
+      786,
+      35
+    ],
+    [
+      3,
+      1,
+      3,
+      2,
+      92
+    ]
+  ],
+  "best_epoch": 8,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 1.0645,
+      "val_accuracy": 0.7138,
+      "val_macro_f1": 0.6652
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.8531,
+      "val_accuracy": 0.7628,
+      "val_macro_f1": 0.7111
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.7949,
+      "val_accuracy": 0.7768,
+      "val_macro_f1": 0.7227
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.7511,
+      "val_accuracy": 0.818,
+      "val_macro_f1": 0.7716
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.6862,
+      "val_accuracy": 0.8561,
+      "val_macro_f1": 0.8041
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.6476,
+      "val_accuracy": 0.8779,
+      "val_macro_f1": 0.8328
+    },
+    {
+      "epoch": 7,
+      "train_loss": 0.6357,
+      "val_accuracy": 0.8927,
+      "val_macro_f1": 0.8483
+    },
+    {
+      "epoch": 8,
+      "train_loss": 0.6336,
+      "val_accuracy": 0.9059,
+      "val_macro_f1": 0.8635
+    },
+    {
+      "epoch": 9,
+      "train_loss": 0.6154,
+      "val_accuracy": 0.9005,
+      "val_macro_f1": 0.8584
+    }
+  ]
+}
