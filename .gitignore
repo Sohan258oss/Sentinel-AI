@@ -10,7 +10,8 @@ venv/
 
 # Environment
 .env
-.env.local
+.env.*
+!.env.example
 
 # Vector store / runtime artifacts
 backend/.chroma/
@@ -24,7 +25,13 @@ node_modules/
 frontend/dist/
 frontend/.vite/
 
+# Logs / coverage
+*.log
+.coverage
+htmlcov/
+
 # OS / editor
 .DS_Store
 .idea/
 .vscode/
+*.swp
