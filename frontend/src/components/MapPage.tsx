@@ -60,10 +60,11 @@ export function MapPage({
         }}
       >
         {[
-          { color: "#2563EB", label: "Your Location" },
-          { color: "#EF4444", label: "Hospitals" },
-          { color: "#16A34A", label: "Shelters" },
-          { color: "#F59E0B", label: "Police / Fire" },
+          { color: "#2563EB", label: "📍 Your Location" },
+          { color: "#dc2626", label: "🏥 Hospitals" },
+          { color: "#059669", label: "⛺ Relief Shelters" },
+          { color: "#d97706", label: "🚔 Police & Fire" },
+          { color: "#0891b2", label: "🌊 Flood Monitoring" },
         ].map((item) => (
           <div key={item.label} style={{ display: "flex", alignItems: "center", gap: 8 }}>
             <span
@@ -75,7 +76,7 @@ export function MapPage({
                 flexShrink: 0,
               }}
             />
-            <span style={{ color: "#475569" }}>{item.label}</span>
+            <span style={{ color: "#334155" }}>{item.label}</span>
           </div>
         ))}
       </div>

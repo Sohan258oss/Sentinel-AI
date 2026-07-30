@@ -50,7 +50,7 @@ export function MorePage({
   const [selectedState, setSelectedState] = useState(currentLocation.state);
   const [selectedDistrict, setSelectedDistrict] = useState(currentLocation.district);
   const [selectedHazard, setSelectedHazard] = useState(currentLocation.hazard);
-  const [devModeOpen, setDevModeOpen] = useState(false);
+  const [devModeOpen, setDevModeOpen] = useState(true);
 
   useEffect(() => {
     api.indiaLocations().then(setLocations).catch(() => {});

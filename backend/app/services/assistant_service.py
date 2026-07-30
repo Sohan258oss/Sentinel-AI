@@ -32,8 +32,41 @@ def ask_citizen_assistant(
     question: str, state: str = "", district: str = "", hazard: str = "flood"
 ) -> dict[str, Any]:
     """Process a citizen question using RAG doctrine and LLM reasoning."""
-    q_lower = question.lower()
+    q_lower = question.lower().strip().strip(".!?")
     location_str = f"{district}, {state}".strip(", ") or "your area"
+
+    # 0. Check for conversational greetings / casual messages
+    greetings = {"hi", "hello", "hey", "hola", "namaste", "thanks", "thank you", "good morning", "good evening", "hi there", "hello there"}
+    if q_lower in greetings or any(q_lower == g for g in greetings):
+        return {
+            "question": question,
+            "district": district,
+            "state": state,
+            "hazard": hazard,
+            "agent": {
+                "role": "knowledge",
+                "name": "Sentinel AI Assistant",
+                "icon": "🤖",
+            },
+            "answer_summary": f"Hello! I'm your SentinelAI emergency assistant for {location_str}. How can I help you today? You can ask me about emergency shelters, medical guidance, first aid, or weather alerts.",
+            "follow_up_questions": [
+                "Where is the nearest emergency shelter?",
+                "What first aid steps should I take?",
+                "Is there an active weather advisory for my area?"
+            ],
+            "steps": [
+                "Type any emergency question or situation above.",
+                "Select a quick topic button below.",
+                "Or tap 'I NEED HELP' on the Home tab for instant multi-agent emergency triage."
+            ],
+            "helplines": [
+                "112 (National Emergency)",
+                "1070 (State Relief)",
+                "1077 (District Control Room)",
+                "108 (Ambulance)",
+            ],
+            "is_llm_reasoned": False,
+        }
 
     # 1. RAG Doctrine Retrieval from ChromaDB
     rag_context = ""

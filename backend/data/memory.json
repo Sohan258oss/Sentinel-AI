@@ -12,7 +12,7 @@
       "lesson": "Aluva: shelter capacity was short by 4,574 during a severe flood. Pre-position additional capacity.",
       "evidence": "Flood \u2014 severe \u2014 Aluva",
       "source_incident_id": "INC-FLD-10530A",
-      "times_reinforced": 31,
+      "times_reinforced": 33,
       "created_at": "2026-07-28T09:25:04.769735Z"
     },
     {
@@ -27,7 +27,7 @@
       "lesson": "Aluva: these designated shelters are flood-exposed and should be reclassified: Aluva Government Higher Secondary School Camp, Nedumbassery Community Relief Centre, Angamaly Parish Community Centre.",
       "evidence": "Flood \u2014 severe \u2014 Aluva",
       "source_incident_id": "INC-FLD-10530A",
-      "times_reinforced": 31,
+      "times_reinforced": 33,
       "created_at": "2026-07-28T09:25:04.770416Z"
     },
     {
@@ -42,7 +42,7 @@
       "lesson": "Aluva: rescue_boat was short 55 for a severe flood. Increase pre-positioned stock.",
       "evidence": "Flood \u2014 severe \u2014 Aluva",
       "source_incident_id": "INC-FLD-10530A",
-      "times_reinforced": 93,
+      "times_reinforced": 99,
       "created_at": "2026-07-28T09:25:04.770594Z"
     },
     {
@@ -522,7 +522,7 @@
       "lesson": "Kamrup Metropolitan: shelter capacity was short by 1,566 during a moderate flood. Pre-position additional capacity.",
       "evidence": "Flood \u2014 moderate \u2014 Kamrup Metropolitan",
       "source_incident_id": "INC-958AE131",
-      "times_reinforced": 2,
+      "times_reinforced": 3,
       "created_at": "2026-07-30T12:03:35.070696Z"
     },
     {
@@ -552,7 +552,7 @@
       "lesson": "Kamrup Metropolitan: rescue_boat was short 20 for a moderate flood. Increase pre-positioned stock.",
       "evidence": "Flood \u2014 moderate \u2014 Kamrup Metropolitan",
       "source_incident_id": "INC-958AE131",
-      "times_reinforced": 6,
+      "times_reinforced": 9,
       "created_at": "2026-07-30T12:03:35.079005Z"
     },
     {
@@ -567,7 +567,7 @@
       "lesson": "Bengaluru Urban: shelter capacity was short by 97 during a minor flood. Pre-position additional capacity.",
       "evidence": "Flood \u2014 minor \u2014 Bengaluru Urban",
       "source_incident_id": "INC-1435B62C",
-      "times_reinforced": 3,
+      "times_reinforced": 8,
       "created_at": "2026-07-30T12:30:32.730814Z"
     },
     {
@@ -582,7 +582,7 @@
       "lesson": "Bengaluru Urban: rescue_boat was short 2 for a minor flood. Increase pre-positioned stock.",
       "evidence": "Flood \u2014 minor \u2014 Bengaluru Urban",
       "source_incident_id": "INC-1435B62C",
-      "times_reinforced": 9,
+      "times_reinforced": 24,
       "created_at": "2026-07-30T12:30:32.734783Z"
     },
     {
@@ -597,7 +597,7 @@
       "lesson": "Bengaluru Urban: shelter capacity was short by 106 during a minor cyclone. Pre-position additional capacity.",
       "evidence": "Cyclone \u2014 minor \u2014 Bengaluru Urban",
       "source_incident_id": "INC-A07BAC2B",
-      "times_reinforced": 3,
+      "times_reinforced": 4,
       "created_at": "2026-07-30T12:33:53.345359Z"
     },
     {
@@ -612,7 +612,7 @@
       "lesson": "Bengaluru Urban: rescue_boat was short 2 for a minor cyclone. Increase pre-positioned stock.",
       "evidence": "Cyclone \u2014 minor \u2014 Bengaluru Urban",
       "source_incident_id": "INC-A07BAC2B",
-      "times_reinforced": 9,
+      "times_reinforced": 12,
       "created_at": "2026-07-30T12:33:53.348226Z"
     },
     {
@@ -627,7 +627,7 @@
       "lesson": "Bengaluru Urban: reachable hospital capacity fell short by 13 beds during a earthquake. Pre-arrange inter-district transfer.",
       "evidence": "Earthquake \u2014 minor \u2014 Bengaluru Urban",
       "source_incident_id": "INC-E0364603",
-      "times_reinforced": 3,
+      "times_reinforced": 10,
       "created_at": "2026-07-30T12:53:03.485247Z"
     },
     {
@@ -642,7 +642,7 @@
       "lesson": "Bengaluru Urban: ambulance was short 2 for a minor earthquake. Increase pre-positioned stock.",
       "evidence": "Earthquake \u2014 minor \u2014 Bengaluru Urban",
       "source_incident_id": "INC-E0364603",
-      "times_reinforced": 9,
+      "times_reinforced": 30,
       "created_at": "2026-07-30T12:53:03.487996Z"
     },
     {
@@ -676,5 +676,5 @@
       "created_at": "2026-07-30T12:55:45.078701Z"
     }
   ],
-  "updated_at": "2026-07-30T13:21:45.361500+00:00"
+  "updated_at": "2026-07-30T15:39:22.695618+00:00"
 }
