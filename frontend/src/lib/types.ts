@@ -372,6 +372,7 @@ export interface SystemStatus {
   registries: SubsystemStatus;
   deterministic_mode: boolean;
   data_provenance: Record<string, { synthetic?: boolean; notice?: string }>;
+  mapbox_token?: string | null;
 }
 
 export interface Scenario {
@@ -398,4 +399,13 @@ export interface RegistryResponse {
   kind: string;
   meta: Record<string, unknown>;
   records: RegistryRecord[];
+}
+
+/** A single article extracted from a search_news tool_result trace */
+export interface NewsArticle {
+  title: string;
+  source: string | null;
+  published_at: string | null;
+  url: string | null;
+  snippet: string;
 }

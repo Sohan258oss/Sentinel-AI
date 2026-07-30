@@ -119,56 +119,69 @@ export function useIncidentRun() {
 
   useEffect(() => () => disposer.current?.(), []);
 
+  const subscribeRun = useCallback((accepted: { run_id: string; incident_id: string }) => {
+    disposer.current?.();
+    setState({ ...EMPTY, running: true, runId: accepted.run_id, incidentId: accepted.incident_id });
+
+    disposer.current = subscribeToRun(accepted.run_id, {
+      onTrace: (trace) =>
+        setState((previous) => {
+          if (previous.traces.some((t) => t.event_id === trace.event_id)) {
+            return previous;
+          }
+          const traces = [...previous.traces, trace].sort(
+            (a, b) => a.sequence - b.sequence,
+          );
+          return { ...previous, traces, agents: reduceAgents(traces) };
+        }),
+      onComplete: async (picture) => {
+        if (picture) {
+          setState((previous) => ({ ...previous, picture, running: false }));
+          return;
+        }
+        setState((previous) => ({ ...previous, running: false }));
+        try {
+          const incidentId = accepted.incident_id;
+          const detail = await api.incident(incidentId);
+          setState((previous) => ({ ...previous, picture: detail.picture }));
+        } catch {
+          /* leave picture null; the UI shows the trace timeline regardless */
+        }
+      },
+      onError: (message) =>
+        setState((previous) => ({ ...previous, error: message })),
+    });
+  }, []);
+
   const start = useCallback(async (scenarioKey: string) => {
     disposer.current?.();
     setState({ ...EMPTY, running: true });
 
     try {
       const accepted = await api.runScenario(scenarioKey);
-      setState((previous) => ({
-        ...previous,
-        runId: accepted.run_id,
-        incidentId: accepted.incident_id,
-      }));
-
-      disposer.current = subscribeToRun(accepted.run_id, {
-        onTrace: (trace) =>
-          setState((previous) => {
-            // Guard against duplicate frames on reconnect.
-            if (previous.traces.some((t) => t.event_id === trace.event_id)) {
-              return previous;
-            }
-            const traces = [...previous.traces, trace].sort(
-              (a, b) => a.sequence - b.sequence,
-            );
-            return { ...previous, traces, agents: reduceAgents(traces) };
-          }),
-        onComplete: async (picture) => {
-          if (picture) {
-            setState((previous) => ({ ...previous, picture, running: false }));
-            return;
-          }
-          // Stream ended without a picture — fall back to a direct fetch so a
-          // dropped final frame does not lose the entire result.
-          setState((previous) => ({ ...previous, running: false }));
-          try {
-            const incidentId = accepted.incident_id;
-            const detail = await api.incident(incidentId);
-            setState((previous) => ({ ...previous, picture: detail.picture }));
-          } catch {
-            /* leave picture null; the UI shows the trace timeline regardless */
-          }
-        },
-        onError: (message) =>
-          setState((previous) => ({ ...previous, error: message })),
-      });
+      subscribeRun(accepted);
     } catch (error) {
       setState({
         ...EMPTY,
         error: error instanceof Error ? error.message : String(error),
       });
     }
-  }, []);
+  }, [subscribeRun]);
+
+  const startCustom = useCallback(async (payload: Record<string, unknown>) => {
+    disposer.current?.();
+    setState({ ...EMPTY, running: true });
+
+    try {
+      const accepted = await api.submitIncident(payload);
+      subscribeRun(accepted);
+    } catch (error) {
+      setState({
+        ...EMPTY,
+        error: error instanceof Error ? error.message : String(error),
+      });
+    }
+  }, [subscribeRun]);
 
   const reset = useCallback(() => {
     disposer.current?.();
@@ -194,5 +207,5 @@ export function useIncidentRun() {
     return { toolCalls, retrievals, critiques, fallbacks, activeAgents };
   }, [state.traces, state.agents]);
 
-  return { ...state, stats, start, reset };
+  return { ...state, stats, start, startCustom, reset };
 }

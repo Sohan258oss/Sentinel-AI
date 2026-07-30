@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import type { SystemStatus } from "../lib/types";
 
 interface Props {
@@ -12,7 +13,7 @@ interface Props {
   running: boolean;
 }
 
-function Pill({
+function StatusBadge({
   label,
   ok,
   detail,
@@ -23,13 +24,15 @@ function Pill({
 }) {
   return (
     <div
-      className="flex items-center gap-1.5 rounded border border-edge bg-panel px-2 py-1"
+      className="flex items-center gap-1.5 rounded-full border border-edge bg-abyss/80 px-2.5 py-0.5 transition-colors hover:border-edge-bright"
       title={detail}
     >
       <span
-        className={`size-1.5 rounded-full ${ok ? "bg-emerald-400" : "bg-amber-400"}`}
+        className={`size-1.5 rounded-full ${
+          ok ? "bg-emerald-400 shadow-[0_0_6px_rgba(52,211,153,0.6)]" : "bg-amber-400 shadow-[0_0_6px_rgba(251,191,36,0.6)]"
+        }`}
       />
-      <span className="font-mono text-[9px] tracking-wide text-ink-dim">
+      <span className="font-mono text-[10px] font-medium tracking-wide text-ink-dim">
         {label}
       </span>
     </div>
@@ -37,92 +40,124 @@ function Pill({
 }
 
 export function TopBar({ status, stats, running }: Props) {
+  const [timeStr, setTimeStr] = useState<string>("");
+
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      setTimeStr(now.toLocaleTimeString("en-US", { hour12: false }));
+    };
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
   const cnnAccuracy = status?.vision.metadata?.cnn_val_accuracy as
     | number
     | undefined;
 
   return (
-    <header className="flex shrink-0 items-center gap-4 border-b border-edge bg-panel px-4 py-2">
-      <div className="flex items-baseline gap-2.5">
+    <header className="flex h-[52px] shrink-0 items-center justify-between border-b border-edge bg-panel/90 px-4 backdrop-blur-md">
+      {/* Brand & Subtitle */}
+      <div className="flex items-center gap-3">
         <div className="flex items-center gap-2">
-          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden>
-            <path
-              d="M12 2 L21 6.5 V12 C21 17 17 21 12 22.5 C7 21 3 17 3 12 V6.5 Z"
-              fill="none"
-              stroke="var(--color-signal)"
-              strokeWidth="1.6"
-            />
-            <circle cx="12" cy="12" r="2.6" fill="var(--color-signal)" />
-          </svg>
-          <h1 className="font-mono text-sm font-semibold tracking-[0.2em] text-ink">
-            SENTINEL<span className="text-signal">AI</span>
+          <div className="relative flex items-center justify-center">
+            <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden>
+              <path
+                d="M12 2 L21 6.5 V12 C21 17 17 21 12 22.5 C7 21 3 17 3 12 V6.5 Z"
+                fill="rgba(34, 211, 238, 0.1)"
+                stroke="var(--color-signal)"
+                strokeWidth="1.8"
+              />
+              <circle cx="12" cy="12" r="3" fill="var(--color-signal)" />
+            </svg>
+            <span className="absolute size-3 rounded-full bg-signal/20 animate-ping" />
+          </div>
+          <h1 className="font-mono text-base font-bold tracking-[0.22em] text-ink">
+            SENTINEL<span className="text-signal font-extrabold">AI</span>
           </h1>
         </div>
-        <span className="hidden font-mono text-[9px] tracking-[0.12em] text-ink-faint lg:inline">
-          PREDICT · COORDINATE · RESPOND · RECOVER
+
+        <span className="hidden font-mono text-[10px] tracking-[0.15em] text-ink-faint border-l border-edge pl-3 lg:inline">
+          CRISIS COMMAND & AUTONOMOUS DISPATCH CENTER
         </span>
       </div>
 
-      <div className="ml-auto flex items-center gap-1.5">
+      {/* Right-side System Telemetry & Status */}
+      <div className="flex items-center gap-2.5">
         {status && (
-          <>
-            <Pill
+          <div className="hidden sm:flex items-center gap-1.5">
+            <StatusBadge
               label={status.deterministic_mode ? "RULE-BASED" : "LLM LIVE"}
               ok={!status.deterministic_mode}
               detail={status.llm.detail}
             />
-            <Pill
+            <StatusBadge
               label={
                 cnnAccuracy
-                  ? `CNN ${Math.round(cnnAccuracy * 100)}%`
-                  : "VISION"
+                  ? `VISION ${Math.round(cnnAccuracy * 100)}%`
+                  : "VISION READY"
               }
               ok={status.vision.available}
               detail={status.vision.detail}
             />
-            <Pill
-              label="RAG"
+            <StatusBadge
+              label="RAG DOCTRINE"
               ok={status.retrieval.available}
               detail={status.retrieval.detail}
             />
-          </>
+          </div>
         )}
 
-        <div className="mx-1 h-5 w-px bg-edge" />
+        <div className="hidden md:block h-4 w-px bg-edge mx-1" />
 
-        <div className="flex items-center gap-2.5 font-mono text-[9px] text-ink-faint">
-          <span title="Agents engaged">
-            AGT <span className="text-ink">{stats.activeAgents}</span>
+        {/* Telemetry Counter */}
+        <div className="flex items-center gap-3 rounded-md border border-edge/60 bg-abyss/60 px-3 py-1 font-mono text-[10px] text-ink-faint">
+          <span title="Agents engaged" className="flex items-center gap-1">
+            AGENTS <span className="font-bold text-signal">{stats.activeAgents}</span>
           </span>
-          <span title="Tool invocations">
-            TOOL <span className="text-ink">{stats.toolCalls}</span>
+          <span title="Tool invocations" className="flex items-center gap-1">
+            TOOLS <span className="font-bold text-ink">{stats.toolCalls}</span>
           </span>
-          <span title="Doctrine retrievals">
-            RAG <span className="text-ink">{stats.retrievals}</span>
+          <span title="Doctrine retrievals" className="flex items-center gap-1">
+            RAG <span className="font-bold text-ink">{stats.retrievals}</span>
           </span>
-          <span title="Reflection cycles">
-            CRIT <span className="text-ink">{stats.critiques}</span>
+          <span title="Reflection cycles" className="flex items-center gap-1">
+            AUDITS <span className="font-bold text-amber-400">{stats.critiques}</span>
           </span>
           {stats.fallbacks > 0 && (
-            <span title="Tool calls served from fallback data" className="text-amber-400">
+            <span title="Tool calls served from fallback data" className="text-amber-400 font-bold">
               FB {stats.fallbacks}
             </span>
           )}
         </div>
 
-        <div className="ml-1 flex items-center gap-1.5 rounded border border-amber-500/30 bg-amber-500/5 px-2 py-1">
-          <span className="font-mono text-[9px] tracking-wide text-amber-400">
-            SIMULATED DATA
-          </span>
-        </div>
+        {/* Clock & Live Indicator */}
+        <div className="flex items-center gap-2">
+          {running ? (
+            <div className="flex items-center gap-1.5 rounded-full border border-signal/40 bg-signal/10 px-2.5 py-0.5">
+              <span className="size-2 rounded-full bg-signal pulse-ring" />
+              <span className="font-mono text-[10px] font-bold text-signal tracking-wide">
+                DISPATCH LIVE
+              </span>
+            </div>
+          ) : (
+            <div className="flex items-center gap-1.5 rounded-full border border-edge bg-abyss px-2.5 py-0.5">
+              <span className="size-1.5 rounded-full bg-emerald-400" />
+              <span className="font-mono text-[10px] font-medium text-ink-faint">
+                STANDBY
+              </span>
+            </div>
+          )}
 
-        {running && (
-          <span className="flex items-center gap-1.5 rounded border border-signal-deep bg-signal/5 px-2 py-1">
-            <span className="size-1.5 rounded-full bg-signal pulse-ring" />
-            <span className="font-mono text-[9px] text-signal">LIVE</span>
-          </span>
-        )}
+          {timeStr && (
+            <div className="hidden xl:block rounded border border-edge/40 bg-panel px-2 py-0.5 font-mono text-[11px] font-semibold text-ink-dim tracking-wider">
+              {timeStr}
+            </div>
+          )}
+        </div>
       </div>
     </header>
   );
 }
+

@@ -85,7 +85,7 @@ class Settings(BaseSettings):
     seed_data_dir: Path = BACKEND_ROOT / "data" / "seed"
 
     # -- API -----------------------------------------------------------------
-    cors_origins: list[str] = Field(
+    cors_origins: str | list[str] = Field(
         default_factory=lambda: ["http://localhost:5173", "http://127.0.0.1:5173"]
     )
 

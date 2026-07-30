@@ -63,3 +63,4 @@ class SystemStatus(SentinelModel):
         description="True when no model is reachable and agents run rule-based logic"
     )
     data_provenance: dict[str, Any] = Field(default_factory=dict)
+    mapbox_token: str | None = None

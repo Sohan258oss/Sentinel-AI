@@ -46,6 +46,7 @@ const NODE_POSITIONS: Record<string, { x: number; y: number }> = {
 interface Props {
   agents: Record<string, AgentLiveState>;
   onSelect?: (role: AgentRole) => void;
+  onHover?: (role: AgentRole | null) => void;
   selected?: AgentRole | null;
 }
 
@@ -68,8 +69,8 @@ function edgeColor(from: AgentStatus, to: AgentStatus): string {
   return "#1b2438";
 }
 
-export function AgentGraph({ agents, onSelect, selected }: Props) {
-  const node = (role: AgentRole, radius = 15) => {
+export function AgentGraph({ agents, onSelect, onHover, selected }: Props) {
+  const node = (role: AgentRole, radius = 16) => {
     const position = NODE_POSITIONS[role];
     const status = statusOf(agents, role);
     const color = STATUS_COLOR[status];
@@ -77,36 +78,40 @@ export function AgentGraph({ agents, onSelect, selected }: Props) {
     const state = agents[role];
     const isSelected = selected === role;
 
+    // Label positioning
+    const isSpecialist = SPECIALISTS.includes(role);
+
     return (
       <g
         key={role}
         transform={`translate(${position.x}, ${position.y})`}
         onClick={() => onSelect?.(role)}
-        className="cursor-pointer"
+        onMouseEnter={() => onHover?.(role)}
+        onMouseLeave={() => onHover?.(null)}
+        className="cursor-pointer group"
       >
         <title>
-          {AGENT_LABEL[role]}
-          {state?.lastTitle ? ` — ${state.lastTitle}` : ""}
-          {status === "skipped" ? " (not activated)" : ""}
+          {AGENT_LABEL[role]} — Status: {status.toUpperCase()}
+          {state?.lastTitle ? ` (${state.lastTitle})` : ""}
         </title>
 
         {live && (
           <circle
-            r={radius + 7}
+            r={radius + 8}
             fill="none"
             stroke={color}
-            strokeWidth="1"
-            opacity="0.35"
+            strokeWidth="1.5"
+            opacity="0.5"
           >
             <animate
               attributeName="r"
-              values={`${radius};${radius + 11};${radius}`}
+              values={`${radius + 2};${radius + 12};${radius + 2}`}
               dur="1.8s"
               repeatCount="indefinite"
             />
             <animate
               attributeName="opacity"
-              values="0.5;0;0.5"
+              values="0.6;0;0.6"
               dur="1.8s"
               repeatCount="indefinite"
             />
@@ -115,32 +120,51 @@ export function AgentGraph({ agents, onSelect, selected }: Props) {
 
         {isSelected && (
           <circle
-            r={radius + 4}
+            r={radius + 5}
             fill="none"
-            stroke="#e8edf7"
-            strokeWidth="1"
-            strokeDasharray="2 2"
+            stroke="#f1f5f9"
+            strokeWidth="1.5"
+            strokeDasharray="3 2"
           />
         )}
 
+        {/* Node Circle */}
         <circle
           r={radius}
-          fill={status === "idle" || status === "skipped" ? "#0c1120" : "#111829"}
+          fill={status === "idle" || status === "skipped" ? "#0e1626" : "#152035"}
           stroke={color}
-          strokeWidth={live ? 2 : 1.5}
-          opacity={status === "skipped" ? 0.4 : 1}
+          strokeWidth={live ? 2.5 : 1.8}
+          opacity={status === "skipped" ? 0.35 : 1}
+          style={{
+            filter: live ? `drop-shadow(0 0 8px ${color})` : "none",
+          }}
         />
 
+        {/* Inner Glyph Code */}
         <text
           textAnchor="middle"
           dy="3.5"
-          fontSize="9"
+          fontSize="9.5"
           fontFamily="var(--font-mono)"
-          fontWeight="600"
-          fill={status === "idle" || status === "skipped" ? "#5c6a85" : color}
+          fontWeight="700"
+          fill={status === "idle" || status === "skipped" ? "#64748b" : color}
         >
           {AGENT_GLYPH[role]}
         </text>
+
+        {/* Node Label Text */}
+        {!isSpecialist && (
+          <text
+            x={radius + 8}
+            y="3.5"
+            fontSize="9"
+            fontFamily="var(--font-mono)"
+            fontWeight="600"
+            fill={status === "idle" ? "#64748b" : "#f1f5f9"}
+          >
+            {AGENT_LABEL[role]}
+          </text>
+        )}
 
         {status === "skipped" && (
           <line
@@ -148,8 +172,8 @@ export function AgentGraph({ agents, onSelect, selected }: Props) {
             y1={radius}
             x2={radius}
             y2={-radius}
-            stroke="#5c6a85"
-            strokeWidth="1"
+            stroke="#64748b"
+            strokeWidth="1.2"
             opacity="0.6"
           />
         )}

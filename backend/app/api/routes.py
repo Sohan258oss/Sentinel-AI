@@ -113,6 +113,7 @@ async def system_status() -> SystemStatus:
         ),
         deterministic_mode=not engine.available,
         data_provenance=registry_provenance(),
+        mapbox_token=settings.mapbox_token,
     )
 
 

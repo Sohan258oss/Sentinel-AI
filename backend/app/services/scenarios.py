@@ -175,6 +175,118 @@ def cyclone_landfall() -> IncidentReport:
     )
 
 
+def assam_brahmaputra_flood() -> IncidentReport:
+    return IncidentReport(
+        incident_id=_incident_id("INC-FLD"),
+        description=(
+            "Brahmaputra river has breached the main embankment near Morigaon and "
+            "Kaziranga fringe. Over 40 low-lying rural villages are submerged under "
+            "rapidly rising waters. Multiple families are stranded on raised embankments "
+            "and school rooftops. NDRF and SDRF motorboats dispatched for mass evacuation."
+        ),
+        location=Location(
+            name="Morigaon",
+            point=GeoPoint(latitude=26.2500, longitude=92.3380),
+            district="Morigaon",
+            state="Assam",
+            population=950_000,
+        ),
+        source=ReportSource(
+            channel="control_room",
+            reporter_name="Assam State Disaster Management Authority (ASDMA)",
+            verified=True,
+            trust_weight=0.95,
+        ),
+        media_paths=_sample_image("flooded_areas"),
+        reported_casualties=14,
+        declared_hazard=HazardType.FLOOD,
+    )
+
+
+def uttarakhand_cloudburst() -> IncidentReport:
+    return IncidentReport(
+        incident_id=_incident_id("INC-LND"),
+        description=(
+            "High-intensity cloudburst over Chamoli district triggering severe "
+            "flash floods and massive landslides across NH-58. Pilgrim transit "
+            "corridor cut off at three places, mudslides blocking Alaknanda tributaries, "
+            "and several mountain village structures damaged in upper reaches."
+        ),
+        location=Location(
+            name="Chamoli",
+            point=GeoPoint(latitude=30.4042, longitude=79.3280),
+            district="Chamoli",
+            state="Uttarakhand",
+            population=380_000,
+        ),
+        source=ReportSource(
+            channel="control_room",
+            reporter_name="Uttarakhand State Emergency Operation Centre",
+            verified=True,
+            trust_weight=0.95,
+        ),
+        media_paths=_sample_image("blocked_road"),
+        reported_casualties=22,
+        declared_hazard=HazardType.LANDSLIDE,
+    )
+
+
+def odisha_super_cyclone() -> IncidentReport:
+    return IncidentReport(
+        incident_id=_incident_id("INC-CYC"),
+        description=(
+            "Very Severe Cyclonic Storm making landfall near Puri coast with "
+            "sustained winds of 150 km/h and higher gusts. 3.5m storm surge has "
+            "inundated coastal fishing hamlets in Puri and Jagatsinghpur. Power "
+            "grid and telecom infrastructure severely damaged across coastal belt."
+        ),
+        location=Location(
+            name="Puri",
+            point=GeoPoint(latitude=19.8135, longitude=85.8312),
+            district="Puri",
+            state="Odisha",
+            population=200_000,
+        ),
+        source=ReportSource(
+            channel="control_room",
+            reporter_name="Odisha State Disaster Management Authority (OSDMA)",
+            verified=True,
+            trust_weight=0.95,
+        ),
+        media_paths=_sample_image("flooded_areas"),
+        reported_casualties=45,
+        declared_hazard=HazardType.CYCLONE,
+    )
+
+
+def delhi_yamuna_flood() -> IncidentReport:
+    return IncidentReport(
+        incident_id=_incident_id("INC-UFLD"),
+        description=(
+            "Yamuna river water level crossed critical mark of 205.33m near Old "
+            "Railway Bridge following heavy discharge from Hathnikund Barrage. Low-lying "
+            "dense urban settlements at Yamuna Bazaar and Kashmiri Gate inundated. "
+            "Water treatment plant operations impaired due to silt loading."
+        ),
+        location=Location(
+            name="Delhi NCR",
+            point=GeoPoint(latitude=28.6139, longitude=77.2090),
+            district="Central Delhi",
+            state="Delhi",
+            population=11_000_000,
+        ),
+        source=ReportSource(
+            channel="control_room",
+            reporter_name="Delhi Disaster Management Authority (DDMA)",
+            verified=True,
+            trust_weight=0.9,
+        ),
+        media_paths=_sample_image("flooded_areas"),
+        reported_casualties=5,
+        declared_hazard=HazardType.URBAN_FLOOD,
+    )
+
+
 SCENARIOS: dict[str, Scenario] = {
     scenario.key: scenario
     for scenario in [
@@ -192,8 +304,60 @@ SCENARIOS: dict[str, Scenario] = {
             build=kerala_flood,
         ),
         Scenario(
+            key="assam_brahmaputra_flood",
+            title="Brahmaputra Flood — Morigaon, Assam",
+            description=(
+                "Embankment breach and massive rural riverine flooding across "
+                "Assam floodplain villages."
+            ),
+            demonstrates=(
+                "Eastern India riverine disaster triage, large-scale rural shelter "
+                "allocation, and multi-agency NDRF/SDRF coordination."
+            ),
+            build=assam_brahmaputra_flood,
+        ),
+        Scenario(
+            key="uttarakhand_cloudburst",
+            title="Cloudburst & Landslide — Chamoli, Uttarakhand",
+            description=(
+                "Himalayan flash flood and landslide blocking major transit corridors "
+                "and mountain settlements."
+            ),
+            demonstrates=(
+                "High-altitude hazard routing, landslide imagery analysis, and "
+                "emergency search-and-rescue resource dispatch."
+            ),
+            build=uttarakhand_cloudburst,
+        ),
+        Scenario(
+            key="odisha_super_cyclone",
+            title="Severe Cyclone — Puri, Odisha",
+            description=(
+                "Coastal landfall with storm surge, severe infrastructure destruction, "
+                "and widespread power loss."
+            ),
+            demonstrates=(
+                "Bay of Bengal cyclone response, strategic reserve release, and "
+                "coastal evacuation logistics."
+            ),
+            build=odisha_super_cyclone,
+        ),
+        Scenario(
+            key="delhi_yamuna_flood",
+            title="Yamuna Urban Flood — Delhi NCR",
+            description=(
+                "High-density urban river flooding affecting key transit hubs "
+                "and municipal water treatment facilities."
+            ),
+            demonstrates=(
+                "Metropolitan urban flood triage, public utility protection, and "
+                "mass urban population alert broadcasting."
+            ),
+            build=delhi_yamuna_flood,
+        ),
+        Scenario(
             key="urban_building_collapse",
-            title="Building Collapse — Kochi",
+            title="Building Collapse — Kochi, Kerala",
             description=(
                 "Structural collapse with trapped occupants in a dense urban area."
             ),
@@ -206,7 +370,7 @@ SCENARIOS: dict[str, Scenario] = {
         ),
         Scenario(
             key="heatwave_advisory",
-            title="Heat Advisory — Thrissur",
+            title="Heat Advisory — Thrissur, Kerala",
             description="Low-severity heat advisory from an unverified citizen report.",
             demonstrates=(
                 "The severity gate short-circuiting the command apparatus so a "
@@ -216,7 +380,7 @@ SCENARIOS: dict[str, Scenario] = {
         ),
         Scenario(
             key="cyclone_landfall",
-            title="Cyclone Landfall — Fort Kochi",
+            title="Cyclone Landfall — Fort Kochi, Kerala",
             description=(
                 "Catastrophic cyclone with storm surge, isolated island "
                 "communities and infrastructure failure."

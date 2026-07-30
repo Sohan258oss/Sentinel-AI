@@ -232,6 +232,7 @@ class BaseAgent(ABC, Generic[TOutput]):
                 "tool": tool_name,
                 "used_fallback": result.used_fallback,
                 "source": result.source,
+                "result": result.data,
             },
         )
         return result.data

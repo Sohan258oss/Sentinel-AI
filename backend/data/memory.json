@@ -12,7 +12,7 @@
       "lesson": "Aluva: shelter capacity was short by 4,574 during a severe flood. Pre-position additional capacity.",
       "evidence": "Flood \u2014 severe \u2014 Aluva",
       "source_incident_id": "INC-FLD-10530A",
-      "times_reinforced": 9,
+      "times_reinforced": 19,
       "created_at": "2026-07-28T09:25:04.769735Z"
     },
     {
@@ -27,7 +27,7 @@
       "lesson": "Aluva: these designated shelters are flood-exposed and should be reclassified: Aluva Government Higher Secondary School Camp, Nedumbassery Community Relief Centre, Angamaly Parish Community Centre.",
       "evidence": "Flood \u2014 severe \u2014 Aluva",
       "source_incident_id": "INC-FLD-10530A",
-      "times_reinforced": 9,
+      "times_reinforced": 19,
       "created_at": "2026-07-28T09:25:04.770416Z"
     },
     {
@@ -42,7 +42,7 @@
       "lesson": "Aluva: rescue_boat was short 55 for a severe flood. Increase pre-positioned stock.",
       "evidence": "Flood \u2014 severe \u2014 Aluva",
       "source_incident_id": "INC-FLD-10530A",
-      "times_reinforced": 27,
+      "times_reinforced": 57,
       "created_at": "2026-07-28T09:25:04.770594Z"
     },
     {
@@ -117,7 +117,7 @@
       "lesson": "Fort Kochi: shelter capacity was short by 3,605 during a severe cyclone. Pre-position additional capacity.",
       "evidence": "Cyclone \u2014 severe \u2014 Fort Kochi",
       "source_incident_id": "INC-CYC-FCB923",
-      "times_reinforced": 1,
+      "times_reinforced": 4,
       "created_at": "2026-07-28T09:25:47.248285Z"
     },
     {
@@ -132,7 +132,7 @@
       "lesson": "Fort Kochi: these designated shelters are flood-exposed and should be reclassified: Fort Kochi Coastal Community Hall, Vypin Island Panchayat Shelter, Aluva Government Higher Secondary School Camp.",
       "evidence": "Cyclone \u2014 severe \u2014 Fort Kochi",
       "source_incident_id": "INC-CYC-FCB923",
-      "times_reinforced": 1,
+      "times_reinforced": 4,
       "created_at": "2026-07-28T09:25:47.248700Z"
     },
     {
@@ -147,9 +147,114 @@
       "lesson": "Fort Kochi: rescue_boat was short 39 for a severe cyclone. Increase pre-positioned stock.",
       "evidence": "Cyclone \u2014 severe \u2014 Fort Kochi",
       "source_incident_id": "INC-CYC-FCB923",
-      "times_reinforced": 3,
+      "times_reinforced": 12,
       "created_at": "2026-07-28T09:25:47.248936Z"
+    },
+    {
+      "lesson_id": "LSN-E6815BAE",
+      "hazard_type": "flood",
+      "region": "Morigaon",
+      "point": {
+        "latitude": 26.25,
+        "longitude": 92.338
+      },
+      "severity_seen": "severe",
+      "lesson": "Morigaon: shelter capacity was short by 24,806 during a severe flood. Pre-position additional capacity.",
+      "evidence": "Flood \u2014 severe \u2014 Morigaon",
+      "source_incident_id": "INC-FLD-2D81EB",
+      "times_reinforced": 2,
+      "created_at": "2026-07-29T07:29:01.061139Z"
+    },
+    {
+      "lesson_id": "LSN-19DED3F8",
+      "hazard_type": "flood",
+      "region": "Morigaon",
+      "point": {
+        "latitude": 26.25,
+        "longitude": 92.338
+      },
+      "severity_seen": "severe",
+      "lesson": "Morigaon: reachable hospital capacity fell short by 174 beds during a flood. Pre-arrange inter-district transfer.",
+      "evidence": "Flood \u2014 severe \u2014 Morigaon",
+      "source_incident_id": "INC-FLD-2D81EB",
+      "times_reinforced": 2,
+      "created_at": "2026-07-29T07:29:01.063146Z"
+    },
+    {
+      "lesson_id": "LSN-F5B53AEF",
+      "hazard_type": "flood",
+      "region": "Morigaon",
+      "point": {
+        "latitude": 26.25,
+        "longitude": 92.338
+      },
+      "severity_seen": "severe",
+      "lesson": "Morigaon: rescue_boat was short 304 for a severe flood. Increase pre-positioned stock.",
+      "evidence": "Flood \u2014 severe \u2014 Morigaon",
+      "source_incident_id": "INC-FLD-2D81EB",
+      "times_reinforced": 6,
+      "created_at": "2026-07-29T07:29:01.064755Z"
+    },
+    {
+      "lesson_id": "LSN-AEECEC6B",
+      "hazard_type": "urban_flood",
+      "region": "Delhi NCR",
+      "point": {
+        "latitude": 28.6139,
+        "longitude": 77.209
+      },
+      "severity_seen": "moderate",
+      "lesson": "Delhi NCR: shelter capacity was short by 19,148 during a moderate urban_flood. Pre-position additional capacity.",
+      "evidence": "Urban Flood \u2014 moderate \u2014 Delhi NCR",
+      "source_incident_id": "INC-UFLD-B3B610",
+      "times_reinforced": 1,
+      "created_at": "2026-07-29T07:29:47.976027Z"
+    },
+    {
+      "lesson_id": "LSN-FB73418C",
+      "hazard_type": "urban_flood",
+      "region": "Delhi NCR",
+      "point": {
+        "latitude": 28.6139,
+        "longitude": 77.209
+      },
+      "severity_seen": "moderate",
+      "lesson": "Delhi NCR: rescue_boat was short 235 for a moderate urban_flood. Increase pre-positioned stock.",
+      "evidence": "Urban Flood \u2014 moderate \u2014 Delhi NCR",
+      "source_incident_id": "INC-UFLD-B3B610",
+      "times_reinforced": 3,
+      "created_at": "2026-07-29T07:29:47.978520Z"
+    },
+    {
+      "lesson_id": "LSN-18AD5D62",
+      "hazard_type": "landslide",
+      "region": "Chamoli",
+      "point": {
+        "latitude": 30.4042,
+        "longitude": 79.328
+      },
+      "severity_seen": "severe",
+      "lesson": "Chamoli: reachable hospital capacity fell short by 125 beds during a landslide. Pre-arrange inter-district transfer.",
+      "evidence": "Landslide \u2014 severe \u2014 Chamoli",
+      "source_incident_id": "INC-LND-B94909",
+      "times_reinforced": 2,
+      "created_at": "2026-07-29T07:30:10.158558Z"
+    },
+    {
+      "lesson_id": "LSN-F760D3E3",
+      "hazard_type": "landslide",
+      "region": "Chamoli",
+      "point": {
+        "latitude": 30.4042,
+        "longitude": 79.328
+      },
+      "severity_seen": "severe",
+      "lesson": "Chamoli: drinking_water_litre was short 41,820 for a severe landslide. Increase pre-positioned stock.",
+      "evidence": "Landslide \u2014 severe \u2014 Chamoli",
+      "source_incident_id": "INC-LND-B94909",
+      "times_reinforced": 6,
+      "created_at": "2026-07-29T07:30:10.160800Z"
     }
   ],
-  "updated_at": "2026-07-28T09:46:32.092175+00:00"
+  "updated_at": "2026-07-30T05:25:00.652663+00:00"
 }
