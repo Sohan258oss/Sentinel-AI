@@ -150,28 +150,55 @@ function ProductCard({
 
 export function OperationalPanels({
   picture,
+  onClose,
+  onMinimize,
 }: {
   picture: OperationalPicture | null;
+  onClose?: () => void;
+  onMinimize?: () => void;
 }) {
   const [tab, setTab] = useState<Tab>("assessment");
 
   return (
     <div className="flex h-full flex-col bg-panel/90 backdrop-blur-md">
-      <div className="flex shrink-0 gap-1 border-b border-edge/80 bg-abyss/60 px-2 pt-1.5">
-        {TABS.map((entry) => (
-          <button
-            key={entry.key}
-            onClick={() => setTab(entry.key)}
-            className={`flex items-center gap-1.5 rounded-t-lg px-3 py-2 font-mono text-[10px] font-bold tracking-wider transition-all ${
-              tab === entry.key
-                ? "border-t-2 border-signal bg-panel text-signal shadow-sm"
-                : "text-ink-faint hover:bg-panel/40 hover:text-ink"
-            }`}
-          >
-            <span>{entry.icon}</span>
-            {entry.label}
-          </button>
-        ))}
+      <div className="flex shrink-0 items-center justify-between border-b border-edge/80 bg-abyss/60 px-2 pt-1.5">
+        <div className="flex items-center gap-1">
+          {TABS.map((entry) => (
+            <button
+              key={entry.key}
+              onClick={() => setTab(entry.key)}
+              className={`flex items-center gap-1.5 rounded-t-lg px-3 py-2 font-mono text-[10px] font-bold tracking-wider transition-all ${
+                tab === entry.key
+                  ? "border-t-2 border-signal bg-panel text-signal shadow-sm"
+                  : "text-ink-faint hover:bg-panel/40 hover:text-ink"
+              }`}
+            >
+              <span>{entry.icon}</span>
+              {entry.label}
+            </button>
+          ))}
+        </div>
+
+        <div className="flex items-center gap-1.5 pr-2">
+          {onMinimize && (
+            <button
+              onClick={onMinimize}
+              title="Minimize Operational Analysis"
+              className="flex items-center gap-1 rounded bg-panel-raised/80 px-2 py-1 font-mono text-[10px] font-semibold text-ink-dim hover:bg-edge hover:text-ink transition-colors"
+            >
+              <span>▼</span> Minimize
+            </button>
+          )}
+          {onClose && (
+            <button
+              onClick={onClose}
+              title="Close Panel (Go Back to Map)"
+              className="flex items-center gap-1 rounded bg-panel-raised/80 px-2.5 py-1 font-mono text-[10px] font-bold text-red-400/90 hover:bg-red-500/20 hover:text-red-400 transition-colors"
+            >
+              <span>✕</span> Close
+            </button>
+          )}
+        </div>
       </div>
 
       <div className="min-h-0 flex-1 overflow-y-auto p-3">

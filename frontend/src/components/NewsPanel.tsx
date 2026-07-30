@@ -16,6 +16,8 @@ interface Props {
   hazardType?: string;
   severityColor?: string;
   informationGap?: string | null;
+  isMinimized?: boolean;
+  onMinimizeToggle?: () => void;
 }
 
 function timeAgo(isoString: string | null): string {
@@ -39,12 +41,52 @@ export function NewsPanel({
   hazardType,
   severityColor = "#22d3ee",
   informationGap,
+  isMinimized = false,
+  onMinimizeToggle,
 }: Props) {
   if (!isOpen) return null;
 
+  if (isMinimized) {
+    return (
+      <div
+        className="pointer-events-auto flex items-center gap-2 rounded-lg border px-3 py-1.5 shadow-2xl backdrop-blur-md transition-all cursor-pointer hover:border-signal"
+        style={{
+          background: "rgba(8, 11, 20, 0.90)",
+          borderColor: `${severityColor}60`,
+        }}
+        onClick={onMinimizeToggle}
+      >
+        <span className="size-2 rounded-full pulse-ring" style={{ background: severityColor }} />
+        <span className="font-mono text-[10px] font-bold uppercase tracking-wider" style={{ color: severityColor }}>
+          OSINT News ({articles.length})
+        </span>
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            onMinimizeToggle?.();
+          }}
+          title="Expand OSINT Panel"
+          className="ml-2 font-mono text-[11px] text-ink-faint hover:text-ink"
+        >
+          ▲
+        </button>
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            onClose();
+          }}
+          title="Close Panel"
+          className="ml-1 font-mono text-[11px] text-ink-faint hover:text-ink"
+        >
+          ✕
+        </button>
+      </div>
+    );
+  }
+
   return (
     <div
-      className="pointer-events-auto flex flex-col overflow-hidden rounded-lg border shadow-2xl"
+      className="pointer-events-auto flex flex-col overflow-hidden rounded-lg border shadow-2xl transition-all"
       style={{
         width: "320px",
         maxHeight: "520px",
@@ -77,12 +119,24 @@ export function NewsPanel({
             </div>
           )}
         </div>
-        <button
-          onClick={onClose}
-          className="ml-auto shrink-0 rounded p-1 font-mono text-[10px] text-ink-faint hover:text-ink"
-        >
-          ✕
-        </button>
+        <div className="ml-auto flex items-center gap-1 shrink-0">
+          {onMinimizeToggle && (
+            <button
+              onClick={onMinimizeToggle}
+              title="Minimize Panel"
+              className="rounded p-1 font-mono text-[11px] text-ink-faint hover:bg-edge hover:text-ink transition-colors"
+            >
+              ─
+            </button>
+          )}
+          <button
+            onClick={onClose}
+            title="Close Panel"
+            className="rounded p-1 font-mono text-[11px] text-ink-faint hover:bg-edge hover:text-ink transition-colors"
+          >
+            ✕
+          </button>
+        </div>
       </div>
 
       {/* Article count badge */}

@@ -1,163 +1,163 @@
 import { useEffect, useState } from "react";
-import type { SystemStatus } from "../lib/types";
 
 interface Props {
-  status: SystemStatus | null;
-  stats: {
-    toolCalls: number;
-    retrievals: number;
-    critiques: number;
-    fallbacks: number;
-    activeAgents: number;
-  };
+  district: string;
+  state: string;
   running: boolean;
+  onOpenLocationModal?: () => void;
 }
 
-function StatusBadge({
-  label,
-  ok,
-  detail,
-}: {
-  label: string;
-  ok: boolean;
-  detail: string;
-}) {
-  return (
-    <div
-      className="flex items-center gap-1.5 rounded-full border border-edge bg-abyss/80 px-2.5 py-0.5 transition-colors hover:border-edge-bright"
-      title={detail}
-    >
-      <span
-        className={`size-1.5 rounded-full ${
-          ok ? "bg-emerald-400 shadow-[0_0_6px_rgba(52,211,153,0.6)]" : "bg-amber-400 shadow-[0_0_6px_rgba(251,191,36,0.6)]"
-        }`}
-      />
-      <span className="font-mono text-[10px] font-medium tracking-wide text-ink-dim">
-        {label}
-      </span>
-    </div>
-  );
-}
-
-export function TopBar({ status, stats, running }: Props) {
-  const [timeStr, setTimeStr] = useState<string>("");
+export function TopBar({ district, state: _state, running, onOpenLocationModal }: Props) {
+  const [timeStr, setTimeStr] = useState("");
 
   useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      setTimeStr(now.toLocaleTimeString("en-US", { hour12: false }));
-    };
-    updateTime();
-    const interval = setInterval(updateTime, 1000);
-    return () => clearInterval(interval);
+    const update = () =>
+      setTimeStr(new Date().toLocaleTimeString("en-US", { hour12: true, hour: "numeric", minute: "2-digit" }));
+    update();
+    const id = setInterval(update, 30_000);
+    return () => clearInterval(id);
   }, []);
 
-  const cnnAccuracy = status?.vision.metadata?.cnn_val_accuracy as
-    | number
-    | undefined;
-
   return (
-    <header className="flex h-[52px] shrink-0 items-center justify-between border-b border-edge bg-panel/90 px-4 backdrop-blur-md">
-      {/* Brand & Subtitle */}
-      <div className="flex items-center gap-3">
-        <div className="flex items-center gap-2">
-          <div className="relative flex items-center justify-center">
-            <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden>
-              <path
-                d="M12 2 L21 6.5 V12 C21 17 17 21 12 22.5 C7 21 3 17 3 12 V6.5 Z"
-                fill="rgba(34, 211, 238, 0.1)"
-                stroke="var(--color-signal)"
-                strokeWidth="1.8"
-              />
-              <circle cx="12" cy="12" r="3" fill="var(--color-signal)" />
-            </svg>
-            <span className="absolute size-3 rounded-full bg-signal/20 animate-ping" />
-          </div>
-          <h1 className="font-mono text-base font-bold tracking-[0.22em] text-ink">
-            SENTINEL<span className="text-signal font-extrabold">AI</span>
-          </h1>
+    <header
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        height: "var(--topbar-h)",
+        padding: "0 16px",
+        background: "var(--color-bg-card)",
+        borderBottom: "1px solid var(--color-border)",
+        boxShadow: "0 1px 3px rgba(0,0,0,0.04)",
+        position: "relative",
+        zIndex: 40,
+        flexShrink: 0,
+      }}
+    >
+      {/* Brand */}
+      <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+        <div
+          style={{
+            width: 30,
+            height: 30,
+            borderRadius: 8,
+            background: "linear-gradient(135deg, #2563EB 0%, #0EA5E9 100%)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            color: "white",
+            fontWeight: 900,
+            fontSize: 13,
+            fontFamily: "var(--font-heading)",
+          }}
+        >
+          S
         </div>
-
-        <span className="hidden font-mono text-[10px] tracking-[0.15em] text-ink-faint border-l border-edge pl-3 lg:inline">
-          CRISIS COMMAND & AUTONOMOUS DISPATCH CENTER
-        </span>
+        <div>
+          <h1
+            style={{
+              margin: 0,
+              fontSize: 16,
+              fontWeight: 800,
+              fontFamily: "var(--font-heading)",
+              color: "var(--color-text)",
+              letterSpacing: "-0.01em",
+              lineHeight: 1.2,
+            }}
+          >
+            Sentinel<span style={{ color: "var(--color-primary)" }}>AI</span>
+          </h1>
+          <p
+            style={{
+              margin: 0,
+              fontSize: 10,
+              color: "var(--color-text-muted)",
+              fontWeight: 600,
+              letterSpacing: "0.04em",
+            }}
+          >
+            Predict · Protect · Respond
+          </p>
+        </div>
       </div>
 
-      {/* Right-side System Telemetry & Status */}
-      <div className="flex items-center gap-2.5">
-        {status && (
-          <div className="hidden sm:flex items-center gap-1.5">
-            <StatusBadge
-              label={status.deterministic_mode ? "RULE-BASED" : "LLM LIVE"}
-              ok={!status.deterministic_mode}
-              detail={status.llm.detail}
-            />
-            <StatusBadge
-              label={
-                cnnAccuracy
-                  ? `VISION ${Math.round(cnnAccuracy * 100)}%`
-                  : "VISION READY"
-              }
-              ok={status.vision.available}
-              detail={status.vision.detail}
-            />
-            <StatusBadge
-              label="RAG DOCTRINE"
-              ok={status.retrieval.available}
-              detail={status.retrieval.detail}
-            />
-          </div>
+      {/* Center — Location Badge (Clickable) */}
+      <button
+        onClick={onOpenLocationModal}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: 6,
+          background: "var(--color-bg-elevated)",
+          border: "1px solid var(--color-border)",
+          padding: "4px 10px",
+          borderRadius: 999,
+          cursor: "pointer",
+          transition: "all 0.15s ease",
+        }}
+        title="Click to change location or auto-detect GPS"
+      >
+        <span style={{ fontSize: 13 }}>📍</span>
+        <span
+          style={{
+            fontSize: 12,
+            fontWeight: 700,
+            color: "var(--color-text)",
+            maxWidth: 160,
+            overflow: "hidden",
+            textOverflow: "ellipsis",
+            whiteSpace: "nowrap",
+          }}
+        >
+          {district}
+        </span>
+        <span style={{ fontSize: 10, color: "var(--color-text-muted)" }}>▼</span>
+        {running && (
+          <span
+            className="pulse-ring"
+            style={{
+              width: 8,
+              height: 8,
+              borderRadius: "50%",
+              background: "var(--color-primary)",
+              display: "inline-block",
+            }}
+          />
         )}
+      </button>
 
-        <div className="hidden md:block h-4 w-px bg-edge mx-1" />
-
-        {/* Telemetry Counter */}
-        <div className="flex items-center gap-3 rounded-md border border-edge/60 bg-abyss/60 px-3 py-1 font-mono text-[10px] text-ink-faint">
-          <span title="Agents engaged" className="flex items-center gap-1">
-            AGENTS <span className="font-bold text-signal">{stats.activeAgents}</span>
+      {/* Right — Time & Emergency */}
+      <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+        <a
+          href="tel:112"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: 4,
+            padding: "4px 10px",
+            borderRadius: 999,
+            background: "var(--color-emergency-light)",
+            color: "var(--color-emergency)",
+            fontSize: 11,
+            fontWeight: 800,
+            textDecoration: "none",
+            transition: "all 0.15s ease",
+          }}
+        >
+          📞 112
+        </a>
+        {timeStr && (
+          <span
+            style={{
+              fontSize: 12,
+              fontWeight: 600,
+              color: "var(--color-text-muted)",
+            }}
+          >
+            {timeStr}
           </span>
-          <span title="Tool invocations" className="flex items-center gap-1">
-            TOOLS <span className="font-bold text-ink">{stats.toolCalls}</span>
-          </span>
-          <span title="Doctrine retrievals" className="flex items-center gap-1">
-            RAG <span className="font-bold text-ink">{stats.retrievals}</span>
-          </span>
-          <span title="Reflection cycles" className="flex items-center gap-1">
-            AUDITS <span className="font-bold text-amber-400">{stats.critiques}</span>
-          </span>
-          {stats.fallbacks > 0 && (
-            <span title="Tool calls served from fallback data" className="text-amber-400 font-bold">
-              FB {stats.fallbacks}
-            </span>
-          )}
-        </div>
-
-        {/* Clock & Live Indicator */}
-        <div className="flex items-center gap-2">
-          {running ? (
-            <div className="flex items-center gap-1.5 rounded-full border border-signal/40 bg-signal/10 px-2.5 py-0.5">
-              <span className="size-2 rounded-full bg-signal pulse-ring" />
-              <span className="font-mono text-[10px] font-bold text-signal tracking-wide">
-                DISPATCH LIVE
-              </span>
-            </div>
-          ) : (
-            <div className="flex items-center gap-1.5 rounded-full border border-edge bg-abyss px-2.5 py-0.5">
-              <span className="size-1.5 rounded-full bg-emerald-400" />
-              <span className="font-mono text-[10px] font-medium text-ink-faint">
-                STANDBY
-              </span>
-            </div>
-          )}
-
-          {timeStr && (
-            <div className="hidden xl:block rounded border border-edge/40 bg-panel px-2 py-0.5 font-mono text-[11px] font-semibold text-ink-dim tracking-wider">
-              {timeStr}
-            </div>
-          )}
-        </div>
+        )}
       </div>
     </header>
   );
 }
-

@@ -47,7 +47,8 @@ class WeatherTool(SentinelTool):
     )
 
     def has_live_backend(self, **kwargs: Any) -> bool:
-        return bool(settings.openweather_api_key) and not settings.offline_mode
+        key = settings.openweather_api_key
+        return bool(key) and key != "your_openweather_api_key_here" and not settings.offline_mode
 
     async def fetch_live(self, **kwargs: Any) -> ToolResult:
         latitude = float(kwargs["latitude"])
@@ -100,9 +101,13 @@ class WeatherTool(SentinelTool):
         # upstream rainfall; we use a mid estimate and disclose it as modelled.
         max_rise = max((g.rate_of_change_m_per_hr for g in nearby), default=0.0)
         spill = any(g.dam_spill_active for g in nearby)
+        warning_breached = any(g.breaches_warning for g in nearby)
 
         jitter = _deterministic_unit(place, latitude, longitude, datetime.now(UTC).date())
         rainfall_24h = max(0.0, max_rise * 380.0 + jitter * 25.0)
+        if warning_breached or spill or max_rise > 0.05:
+            rainfall_24h = max(18.0, rainfall_24h)
+
         forecast_24h = rainfall_24h * (1.15 if max_rise > 0.1 else 0.6)
         wind_kmh = 18.0 + jitter * 30.0 + (15.0 if rainfall_24h > 120 else 0.0)
 

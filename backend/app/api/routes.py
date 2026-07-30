@@ -15,6 +15,7 @@ import uuid
 from typing import Any
 
 from fastapi import APIRouter, File, HTTPException, UploadFile, status
+# pyrefly: ignore [missing-import]
 from sse_starlette.sse import EventSourceResponse
 
 from app import __version__
@@ -365,3 +366,82 @@ async def registry(kind: str) -> dict[str, Any]:
         "meta": repository.meta,
         "records": [record.model_dump(mode="json") for record in repository.all()],
     }
+
+
+# ---------------------------------------------------------------------------
+# All-India District Intelligence & Facilities
+# ---------------------------------------------------------------------------
+
+
+@router.get("/india/locations", tags=["india"])
+async def india_locations() -> list[dict[str, Any]]:
+    """Return all 28 States and 8 Union Territories with official districts."""
+    from app.services.district_service import get_states_and_districts
+
+    return get_states_and_districts()
+
+
+@router.get("/india/district-intelligence", tags=["india"])
+async def district_intelligence(
+    state: str, district: str, hazard: str = "flood"
+) -> dict[str, Any]:
+    """Return comprehensive district info, nearby facilities, and emergency action plan."""
+    from app.services.district_service import (
+        get_citizen_action_plan,
+        get_district_facilities,
+        get_district_info,
+    )
+
+    info = get_district_info(state, district)
+    if not info:
+        raise HTTPException(
+            status_code=404, detail=f"District '{district}' in '{state}' not found."
+        )
+
+    facilities = get_district_facilities(
+        info["lat"], info["lon"], state=state, district=district
+    )
+    action_plan = get_citizen_action_plan(hazard, district=district)
+
+    return {
+        "district_info": info,
+        "facilities": facilities,
+        "action_plan": action_plan,
+    }
+
+
+@router.get("/india/nearest-location", tags=["india"])
+async def nearest_location(lat: float, lon: float) -> dict[str, Any]:
+    """Find nearest Indian state & district for given GPS coordinates."""
+    from app.services.district_service import find_nearest_district
+
+    return find_nearest_district(lat, lon)
+
+
+@router.get("/india/nearby-hospitals", tags=["india"])
+async def nearby_hospitals(lat: float, lon: float, radius: float = 15.0) -> dict[str, Any]:
+    """Dynamically fetch real nearby hospitals from OpenStreetMap Overpass API for given GPS position."""
+    from app.services.district_service import fetch_real_overpass_hospitals
+
+    hospitals = fetch_real_overpass_hospitals(lat, lon, radius_km=radius)
+    return {"lat": lat, "lon": lon, "hospitals": hospitals}
+
+
+@router.post("/assistant/ask", tags=["assistant"])
+async def ask_assistant(payload: dict[str, Any]) -> dict[str, Any]:
+    """Citizen Emergency Q&A Assistant endpoint."""
+    from app.services.assistant_service import ask_citizen_assistant
+
+    question = str(payload.get("question") or "")
+    state = str(payload.get("state") or "")
+    district = str(payload.get("district") or "")
+    hazard = str(payload.get("hazard") or "flood")
+
+    if not question.strip():
+        raise HTTPException(status_code=400, detail="Question cannot be empty.")
+
+    return ask_citizen_assistant(
+        question=question, state=state, district=district, hazard=hazard
+    )
+
+

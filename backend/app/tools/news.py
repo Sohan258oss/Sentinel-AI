@@ -1,35 +1,55 @@
-"""Open-source intelligence tool.
-
-**Deliberate design decision — this tool has no synthetic fallback content.**
-
-Every other tool degrades to a transparent physical model: a routing estimate
-derived from distance and terrain, rainfall back-solved from gauge dynamics.
-Those are honest approximations of measurable dynamics.
-
-News is categorically different. Fabricating headlines about a real district —
-even for a demo — manufactures disinformation about real places and real
-people, and this platform's own Communication Agent exists partly to *counter*
-rumour during disasters. Generating fake news here would undermine the product's
-premise.
-
-So when no live feed is configured this tool returns zero articles and says so.
-Downstream agents treat "no OSINT available" as an explicit information gap,
-which is exactly how a real intelligence cell handles an unavailable source.
-"""
-
 from __future__ import annotations
 
+import xml.etree.ElementTree as ET
 from datetime import UTC, datetime, timedelta
 from typing import Any, ClassVar
+from urllib.parse import quote_plus
 
 import httpx
 
 from app.core.config import settings
-from app.core.exceptions import ToolExecutionError
+from app.core.logging import get_logger
 from app.schemas.enums import AgentRole
 from app.tools.base import SentinelTool, ToolResult
 
+logger = get_logger(__name__)
 _NEWSAPI_URL = "https://newsapi.org/v2/everything"
+
+
+async def _fetch_rss_news(query: str) -> list[dict[str, Any]]:
+    encoded = quote_plus(query)
+    url = f"https://news.google.com/rss/search?q={encoded}&hl=en-IN&gl=IN&ceid=IN:en"
+    async with httpx.AsyncClient(timeout=10.0, follow_redirects=True) as client:
+        res = await client.get(url)
+        if res.status_code != 200:
+            return []
+
+        root = ET.fromstring(res.content)
+        articles: list[dict[str, Any]] = []
+        for item in root.findall(".//item"):
+            title = item.find("title")
+            title_text = title.text if title is not None else ""
+
+            link = item.find("link")
+            link_text = link.text if link is not None else ""
+
+            pub_date = item.find("pubDate")
+            pub_text = pub_date.text if pub_date is not None else None
+
+            source = item.find("source")
+            source_text = source.text if source is not None else "Google News"
+
+            if title_text:
+                articles.append({
+                    "title": title_text,
+                    "source": source_text,
+                    "published_at": pub_text,
+                    "url": link_text,
+                    "snippet": title_text,
+                })
+            if len(articles) >= 10:
+                break
+        return articles
 
 
 class NewsIntelTool(SentinelTool):
@@ -47,46 +67,67 @@ class NewsIntelTool(SentinelTool):
     )
 
     def has_live_backend(self, **kwargs: Any) -> bool:
-        return bool(settings.newsapi_key) and not settings.offline_mode
+        key = settings.newsapi_key
+        return bool(key) and key != "your_newsapi_key_here" and not settings.offline_mode
 
     async def fetch_live(self, **kwargs: Any) -> ToolResult:
-        query = str(kwargs.get("query") or kwargs.get("location") or "disaster")
-        hours = int(kwargs.get("hours", 24))
-        since = (datetime.now(UTC) - timedelta(hours=hours)).strftime("%Y-%m-%dT%H:%M:%S")
+        query = str(kwargs.get("query") or kwargs.get("location") or "disaster flood")
+        
+        # 1. Try NewsAPI if key configured
+        if settings.newsapi_key:
+            try:
+                hours = int(kwargs.get("hours", 24))
+                since = (datetime.now(UTC) - timedelta(hours=hours)).strftime("%Y-%m-%dT%H:%M:%S")
+                params = {
+                    "q": query,
+                    "from": since,
+                    "sortBy": "publishedAt",
+                    "language": "en",
+                    "pageSize": 10,
+                    "apiKey": settings.newsapi_key,
+                }
+                async with httpx.AsyncClient(timeout=10.0) as client:
+                    response = await client.get(_NEWSAPI_URL, params=params)
 
-        params = {
-            "q": query,
-            "from": since,
-            "sortBy": "publishedAt",
-            "language": "en",
-            "pageSize": 10,
-            "apiKey": settings.newsapi_key,
-        }
+                if response.status_code == 200:
+                    articles = response.json().get("articles", [])
+                    if articles:
+                        return ToolResult(
+                            data={
+                                "article_count": len(articles),
+                                "feed_available": True,
+                                "articles": [
+                                    {
+                                        "title": a.get("title"),
+                                        "source": (a.get("source") or {}).get("name"),
+                                        "published_at": a.get("publishedAt"),
+                                        "url": a.get("url"),
+                                        "snippet": (a.get("description") or "")[:300],
+                                    }
+                                    for a in articles
+                                ],
+                            },
+                            source="newsapi.org",
+                        )
+            except Exception as exc:
+                logger.warning("newsapi.failed", error=str(exc))
 
-        async with httpx.AsyncClient(timeout=10.0) as client:
-            response = await client.get(_NEWSAPI_URL, params=params)
+        # 2. Fallback to Google News RSS (Free & Keyless)
+        try:
+            rss_articles = await _fetch_rss_news(query)
+            if rss_articles:
+                return ToolResult(
+                    data={
+                        "article_count": len(rss_articles),
+                        "feed_available": True,
+                        "articles": rss_articles,
+                    },
+                    source="google-news-rss",
+                )
+        except Exception as exc:
+            logger.warning("rss_news.failed", error=str(exc))
 
-        if response.status_code != 200:
-            raise ToolExecutionError(self.name, f"HTTP {response.status_code}")
-
-        articles = response.json().get("articles", [])
-        return ToolResult(
-            data={
-                "article_count": len(articles),
-                "feed_available": True,
-                "articles": [
-                    {
-                        "title": a.get("title"),
-                        "source": (a.get("source") or {}).get("name"),
-                        "published_at": a.get("publishedAt"),
-                        "url": a.get("url"),
-                        "snippet": (a.get("description") or "")[:300],
-                    }
-                    for a in articles
-                ],
-            },
-            source="newsapi.org",
-        )
+        return await self.fetch_fallback(**kwargs)
 
     async def fetch_fallback(self, **kwargs: Any) -> ToolResult:
         return ToolResult(
@@ -102,3 +143,4 @@ class NewsIntelTool(SentinelTool):
             },
             source="none (no synthetic news generated by design)",
         )
+

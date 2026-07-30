@@ -25,6 +25,8 @@ export type AgentRole =
   | "logistics"
   | "volunteer"
   | "allocation"
+  | "resource_allocation"
+  | "news"
   | "reflection"
   | "communication";
 

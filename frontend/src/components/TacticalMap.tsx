@@ -1,5 +1,4 @@
 import { useEffect, useMemo, useState, useRef } from "react";
-import { api } from "../lib/api";
 import { formatNumber } from "../lib/format";
 import { SEVERITY_COLOR } from "../lib/format";
 import type {
@@ -70,6 +69,8 @@ interface Props {
   assessment?: SituationAssessment | null;
   allocationPlan?: AllocationPlan | null;
   activeAgentRole?: AgentRole | null;
+  districtFacilities?: any;
+  liveHospitals?: any[];
 }
 
 interface Bounds {
@@ -86,6 +87,8 @@ export function TacticalMap({
   assessment,
   allocationPlan,
   activeAgentRole,
+  districtFacilities,
+  liveHospitals,
 }: Props) {
   const [data, setData] = useState<Record<LayerKey, RegistryRecord[]>>({
     hospitals: [],
@@ -93,6 +96,47 @@ export function TacticalMap({
     depots: [],
     river_gauges: [],
   });
+
+  useEffect(() => {
+    // Prioritize live hospitals fetched from OpenStreetMap Healthcare API!
+    const hospSource = liveHospitals && liveHospitals.length > 0
+      ? liveHospitals
+      : districtFacilities?.hospitals || [];
+
+    const nextHospitals = hospSource.map((h: any) => ({
+      name: h.name,
+      point: { latitude: h.lat, longitude: h.lon },
+      available_beds: h.available_beds ?? h.icu_available ?? 10,
+      icu_available: h.icu_available ?? 4,
+    }));
+
+    const nextShelters = (districtFacilities?.shelters || []).map((s: any) => ({
+      name: s.name,
+      point: {
+        latitude: s.lat ?? (incidentPoint?.latitude ? incidentPoint.latitude + 0.01 : 26.15),
+        longitude: s.lon ?? (incidentPoint?.longitude ? incidentPoint.longitude + 0.01 : 91.74),
+      },
+      capacity: s.capacity ?? 1000,
+      current_occupancy: s.current_occupancy ?? 200,
+      flood_safe: true,
+    }));
+
+    const nextDepots = (districtFacilities?.police_fire || []).map((pf: any) => ({
+      name: pf.name,
+      point: {
+        latitude: incidentPoint?.latitude ? incidentPoint.latitude - 0.012 : 26.13,
+        longitude: incidentPoint?.longitude ? incidentPoint.longitude - 0.012 : 91.72,
+      },
+      organization: pf.name,
+    }));
+
+    setData({
+      hospitals: nextHospitals,
+      shelters: nextShelters,
+      depots: nextDepots,
+      river_gauges: [],
+    });
+  }, [districtFacilities, liveHospitals, incidentPoint]);
   const [active, setActive] = useState<Record<LayerKey, boolean>>({
     hospitals: true,
     shelters: true,
@@ -111,24 +155,7 @@ export function TacticalMap({
   const [map, setMap] = useState<mapboxgl.Map | null>(null);
   const markersRef = useRef<mapboxgl.Marker[]>([]);
 
-  useEffect(() => {
-    let cancelled = false;
-    Promise.all(LAYERS.map((layer) => api.registry(layer.key)))
-      .then((responses) => {
-        if (cancelled) return;
-        const next = {} as Record<LayerKey, RegistryRecord[]>;
-        responses.forEach((response, index) => {
-          next[LAYERS[index].key] = response.records as RegistryRecord[];
-        });
-        setData(next);
-      })
-      .catch(() => {
-        /* map degrades to the incident marker alone */
-      });
-    return () => {
-      cancelled = true;
-    };
-  }, []);
+
 
   // Compute Bounds (used for SVG projection as fallback)
   const bounds: Bounds = useMemo(() => {
@@ -261,6 +288,17 @@ export function TacticalMap({
       setMap(null);
     };
   }, [mapboxToken]);
+
+  // Center camera smoothly whenever incidentPoint coordinates change
+  useEffect(() => {
+    if (map && incidentPoint) {
+      map.easeTo({
+        center: [incidentPoint.longitude, incidentPoint.latitude],
+        zoom: 11.5,
+        duration: 1200,
+      });
+    }
+  }, [map, incidentPoint?.latitude, incidentPoint?.longitude]);
 
   // Sync Mapbox markers, hazard boundary circle, and routing lines
   useEffect(() => {

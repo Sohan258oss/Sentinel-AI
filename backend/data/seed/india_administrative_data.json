@@ -1,0 +1,360 @@
+{
+  "states": [
+    {
+      "code": "AS",
+      "name": "Assam",
+      "type": "State",
+      "districts": [
+        {"name": "Kamrup Metropolitan", "hq": "Guwahati", "lat": 26.1445, "lon": 91.7362, "pop": 1120000, "primary_hazard": "urban_flood", "helpline": "1077"},
+        {"name": "Cachar", "hq": "Silchar", "lat": 24.8333, "lon": 92.7667, "pop": 1736000, "primary_hazard": "flood", "helpline": "1070"},
+        {"name": "Darrang", "hq": "Mangaldoi", "lat": 26.4333, "lon": 92.0333, "pop": 928000, "primary_hazard": "flood", "helpline": "1077"},
+        {"name": "Dibrugarh", "hq": "Dibrugarh", "lat": 27.4728, "lon": 94.9120, "pop": 1326000, "primary_hazard": "flood", "helpline": "1077"},
+        {"name": "Dhubri", "hq": "Dhubri", "lat": 26.0207, "lon": 89.9741, "pop": 1948000, "primary_hazard": "flood", "helpline": "1077"},
+        {"name": "Jorhat", "hq": "Jorhat", "lat": 26.7509, "lon": 94.2037, "pop": 1092000, "primary_hazard": "flood", "helpline": "1077"},
+        {"name": "Nagaon", "hq": "Nagaon", "lat": 26.3464, "lon": 92.6841, "pop": 2823000, "primary_hazard": "flood", "helpline": "1077"}
+      ]
+    },
+    {
+      "code": "OD",
+      "name": "Odisha",
+      "type": "State",
+      "districts": [
+        {"name": "Puri", "hq": "Puri", "lat": 19.8135, "lon": 85.8312, "pop": 1698000, "primary_hazard": "cyclone", "helpline": "1070"},
+        {"name": "Khurda", "hq": "Bhubaneswar", "lat": 20.2961, "lon": 85.8245, "pop": 2251000, "primary_hazard": "urban_flood", "helpline": "1070"},
+        {"name": "Cuttack", "hq": "Cuttack", "lat": 20.4625, "lon": 85.8828, "pop": 2624000, "primary_hazard": "flood", "helpline": "1070"},
+        {"name": "Ganjam", "hq": "Chatrapur", "lat": 19.3564, "lon": 84.9856, "pop": 3529000, "primary_hazard": "cyclone", "helpline": "1070"},
+        {"name": "Balasore", "hq": "Balasore", "lat": 21.4934, "lon": 86.9135, "pop": 2320000, "primary_hazard": "cyclone", "helpline": "1070"},
+        {"name": "Kendrapara", "hq": "Kendrapara", "lat": 20.5015, "lon": 86.4215, "pop": 1440000, "primary_hazard": "flood", "helpline": "1070"}
+      ]
+    },
+    {
+      "code": "MH",
+      "name": "Maharashtra",
+      "type": "State",
+      "districts": [
+        {"name": "Mumbai Suburban", "hq": "Bandra", "lat": 19.0760, "lon": 72.8777, "pop": 9356000, "primary_hazard": "urban_flood", "helpline": "1916"},
+        {"name": "Mumbai City", "hq": "Mumbai", "lat": 18.9388, "lon": 72.8353, "pop": 3145000, "primary_hazard": "urban_flood", "helpline": "1916"},
+        {"name": "Thane", "hq": "Thane", "lat": 19.2183, "lon": 72.9781, "pop": 11060000, "primary_hazard": "urban_flood", "helpline": "1077"},
+        {"name": "Pune", "hq": "Pune", "lat": 18.5204, "lon": 73.8567, "pop": 9429000, "primary_hazard": "urban_flood", "helpline": "1077"},
+        {"name": "Raigad", "hq": "Alibag", "lat": 18.6414, "lon": 72.8722, "pop": 2634000, "primary_hazard": "landslide", "helpline": "1077"},
+        {"name": "Kolhapur", "hq": "Kolhapur", "lat": 16.7050, "lon": 74.2433, "pop": 3876000, "primary_hazard": "flood", "helpline": "1077"},
+        {"name": "Ratnagiri", "hq": "Ratnagiri", "lat": 16.9902, "lon": 73.3120, "pop": 1615000, "primary_hazard": "landslide", "helpline": "1077"}
+      ]
+    },
+    {
+      "code": "UK",
+      "name": "Uttarakhand",
+      "type": "State",
+      "districts": [
+        {"name": "Rudraprayag", "hq": "Kedarnath / Rudraprayag", "lat": 30.7346, "lon": 79.0669, "pop": 242000, "primary_hazard": "landslide", "helpline": "1070"},
+        {"name": "Chamoli", "hq": "Gopeshwar", "lat": 30.4100, "lon": 79.3300, "pop": 391000, "primary_hazard": "landslide", "helpline": "1070"},
+        {"name": "Uttarkashi", "hq": "Uttarkashi", "lat": 30.7268, "lon": 78.4354, "pop": 330000, "primary_hazard": "landslide", "helpline": "1070"},
+        {"name": "Dehradun", "hq": "Dehradun", "lat": 30.3165, "lon": 78.0322, "pop": 1696000, "primary_hazard": "flash_flood", "helpline": "1070"},
+        {"name": "Pithoragarh", "hq": "Pithoragarh", "lat": 29.5829, "lon": 80.2182, "pop": 483000, "primary_hazard": "landslide", "helpline": "1070"}
+      ]
+    },
+    {
+      "code": "DL",
+      "name": "Delhi NCR",
+      "type": "Union Territory",
+      "districts": [
+        {"name": "Central Delhi", "hq": "Daryaganj", "lat": 28.6469, "lon": 77.2373, "pop": 580000, "primary_hazard": "urban_flood", "helpline": "1077"},
+        {"name": "New Delhi", "hq": "Connaught Place", "lat": 28.6139, "lon": 77.2090, "pop": 142000, "primary_hazard": "heatwave", "helpline": "1077"},
+        {"name": "East Delhi", "hq": "Preet Vihar", "lat": 28.6280, "lon": 77.2950, "pop": 1709000, "primary_hazard": "urban_flood", "helpline": "1077"},
+        {"name": "North East Delhi", "hq": "Seelampur", "lat": 28.6920, "lon": 77.2720, "pop": 2243000, "primary_hazard": "urban_flood", "helpline": "1077"},
+        {"name": "South Delhi", "hq": "Saket", "lat": 28.5244, "lon": 77.2188, "pop": 2731000, "primary_hazard": "earthquake", "helpline": "1077"}
+      ]
+    },
+    {
+      "code": "TN",
+      "name": "Tamil Nadu",
+      "type": "State",
+      "districts": [
+        {"name": "Chennai", "hq": "Chennai", "lat": 13.0827, "lon": 80.2707, "pop": 4646000, "primary_hazard": "urban_flood", "helpline": "1077"},
+        {"name": "Cuddalore", "hq": "Cuddalore", "lat": 11.7480, "lon": 79.7714, "pop": 2605000, "primary_hazard": "cyclone", "helpline": "1077"},
+        {"name": "Nagapattinam", "hq": "Nagapattinam", "lat": 10.7672, "lon": 79.8449, "pop": 1616000, "primary_hazard": "cyclone", "helpline": "1077"},
+        {"name": "Coimbatore", "hq": "Coimbatore", "lat": 11.0168, "lon": 76.9558, "pop": 3458000, "primary_hazard": "flash_flood", "helpline": "1077"},
+        {"name": "Nilgiris", "hq": "Udhagamandalam", "lat": 11.4102, "lon": 76.6950, "pop": 735000, "primary_hazard": "landslide", "helpline": "1077"}
+      ]
+    },
+    {
+      "code": "KL",
+      "name": "Kerala",
+      "type": "State",
+      "districts": [
+        {"name": "Wayanad", "hq": "Kalpetta", "lat": 11.6050, "lon": 76.0830, "pop": 817000, "primary_hazard": "landslide", "helpline": "1077"},
+        {"name": "Idukki", "hq": "Painavu", "lat": 9.8497, "lon": 76.9806, "pop": 1108000, "primary_hazard": "landslide", "helpline": "1077"},
+        {"name": "Ernakulam", "hq": "Kochi", "lat": 9.9816, "lon": 76.2999, "pop": 3282000, "primary_hazard": "flood", "helpline": "1077"},
+        {"name": "Alappuzha", "hq": "Alappuzha", "lat": 9.4981, "lon": 76.3388, "pop": 2127000, "primary_hazard": "flood", "helpline": "1077"},
+        {"name": "Thiruvananthapuram", "hq": "Thiruvananthapuram", "lat": 8.5241, "lon": 76.9366, "pop": 3301000, "primary_hazard": "cyclone", "helpline": "1077"}
+      ]
+    },
+    {
+      "code": "WB",
+      "name": "West Bengal",
+      "type": "State",
+      "districts": [
+        {"name": "Kolkata", "hq": "Kolkata", "lat": 22.5726, "lon": 88.3639, "pop": 4496000, "primary_hazard": "urban_flood", "helpline": "1070"},
+        {"name": "South 24 Parganas", "hq": "Alipore", "lat": 22.1352, "lon": 88.4016, "pop": 8161000, "primary_hazard": "cyclone", "helpline": "1070"},
+        {"name": "Darjeeling", "hq": "Darjeeling", "lat": 27.0410, "lon": 88.2663, "pop": 1846000, "primary_hazard": "landslide", "helpline": "1070"},
+        {"name": "Howrah", "hq": "Howrah", "lat": 22.5958, "lon": 88.2636, "pop": 4850000, "primary_hazard": "flood", "helpline": "1070"}
+      ]
+    },
+    {
+      "code": "KA",
+      "name": "Karnataka",
+      "type": "State",
+      "districts": [
+        {"name": "Bengaluru Urban", "hq": "Bengaluru", "lat": 12.9716, "lon": 77.5946, "pop": 9621000, "primary_hazard": "urban_flood", "helpline": "1077"},
+        {"name": "Dakshina Kannada", "hq": "Mangaluru", "lat": 12.9141, "lon": 74.8560, "pop": 2089000, "primary_hazard": "landslide", "helpline": "1077"},
+        {"name": "Kodagu", "hq": "Madikeri", "lat": 12.4244, "lon": 75.7382, "pop": 554000, "primary_hazard": "landslide", "helpline": "1077"},
+        {"name": "Uttara Kannada", "hq": "Karwar", "lat": 14.8074, "lon": 74.1240, "pop": 1437000, "primary_hazard": "flood", "helpline": "1077"}
+      ]
+    },
+    {
+      "code": "GJ",
+      "name": "Gujarat",
+      "type": "State",
+      "districts": [
+        {"name": "Kutch", "hq": "Bhuj", "lat": 23.2420, "lon": 69.6669, "pop": 2092000, "primary_hazard": "earthquake", "helpline": "1077"},
+        {"name": "Ahmedabad", "hq": "Ahmedabad", "lat": 23.0225, "lon": 72.5714, "pop": 7214000, "primary_hazard": "heatwave", "helpline": "1077"},
+        {"name": "Surat", "hq": "Surat", "lat": 21.1702, "lon": 72.8311, "pop": 6081000, "primary_hazard": "flood", "helpline": "1077"},
+        {"name": "Vadodara", "hq": "Vadodara", "lat": 22.3072, "lon": 73.1812, "pop": 4165000, "primary_hazard": "flood", "helpline": "1077"}
+      ]
+    },
+    {
+      "code": "UP",
+      "name": "Uttar Pradesh",
+      "type": "State",
+      "districts": [
+        {"name": "Gorakhpur", "hq": "Gorakhpur", "lat": 26.7606, "lon": 83.3732, "pop": 4440000, "primary_hazard": "flood", "helpline": "1070"},
+        {"name": "Varanasi", "hq": "Varanasi", "lat": 25.3176, "lon": 82.9739, "pop": 3676000, "primary_hazard": "flood", "helpline": "1070"},
+        {"name": "Lucknow", "hq": "Lucknow", "lat": 26.8467, "lon": 80.9462, "pop": 4589000, "primary_hazard": "urban_flood", "helpline": "1070"},
+        {"name": "Gautam Buddha Nagar", "hq": "Noida", "lat": 28.5355, "lon": 77.3910, "pop": 1648000, "primary_hazard": "heatwave", "helpline": "1070"}
+      ]
+    },
+    {
+      "code": "BR",
+      "name": "Bihar",
+      "type": "State",
+      "districts": [
+        {"name": "Patna", "hq": "Patna", "lat": 25.5941, "lon": 85.1376, "pop": 5838000, "primary_hazard": "urban_flood", "helpline": "1070"},
+        {"name": "Darbhanga", "hq": "Darbhanga", "lat": 26.1542, "lon": 85.8918, "pop": 3937000, "primary_hazard": "flood", "helpline": "1070"},
+        {"name": "Muzaffarpur", "hq": "Muzaffarpur", "lat": 26.1209, "lon": 85.3647, "pop": 4801000, "primary_hazard": "flood", "helpline": "1070"},
+        {"name": "Sitamarhi", "hq": "Sitamarhi", "lat": 26.5938, "lon": 85.4894, "pop": 3423000, "primary_hazard": "flood", "helpline": "1070"}
+      ]
+    },
+    {
+      "code": "AP",
+      "name": "Andhra Pradesh",
+      "type": "State",
+      "districts": [
+        {"name": "Visakhapatnam", "hq": "Visakhapatnam", "lat": 17.6868, "lon": 83.2185, "pop": 4290000, "primary_hazard": "cyclone", "helpline": "1077"},
+        {"name": "NTR Vijayawada", "hq": "Vijayawada", "lat": 16.5062, "lon": 80.6480, "pop": 2500000, "primary_hazard": "flood", "helpline": "1077"},
+        {"name": "East Godavari", "hq": "Rajahmundry", "lat": 17.0005, "lon": 81.8040, "pop": 1830000, "primary_hazard": "flood", "helpline": "1077"}
+      ]
+    },
+    {
+      "code": "TG",
+      "name": "Telangana",
+      "type": "State",
+      "districts": [
+        {"name": "Hyderabad", "hq": "Hyderabad", "lat": 17.3850, "lon": 78.4867, "pop": 6809000, "primary_hazard": "urban_flood", "helpline": "1077"},
+        {"name": "Bhadradri Kothagudem", "hq": "Kothagudem", "lat": 17.5500, "lon": 80.6167, "pop": 1069000, "primary_hazard": "flood", "helpline": "1077"},
+        {"name": "Warangal", "hq": "Warangal", "lat": 17.9784, "lon": 79.5941, "pop": 711000, "primary_hazard": "urban_flood", "helpline": "1077"}
+      ]
+    },
+    {
+      "code": "RJ",
+      "name": "Rajasthan",
+      "type": "State",
+      "districts": [
+        {"name": "Jaipur", "hq": "Jaipur", "lat": 26.9124, "lon": 75.7873, "pop": 6626000, "primary_hazard": "heatwave", "helpline": "1077"},
+        {"name": "Jodhpur", "hq": "Jodhpur", "lat": 26.2389, "lon": 73.0243, "pop": 3687000, "primary_hazard": "heatwave", "helpline": "1077"},
+        {"name": "Barmer", "hq": "Barmer", "lat": 25.7532, "lon": 71.4181, "pop": 2603000, "primary_hazard": "flash_flood", "helpline": "1077"}
+      ]
+    },
+    {
+      "code": "PB",
+      "name": "Punjab",
+      "type": "State",
+      "districts": [
+        {"name": "Ludhiana", "hq": "Ludhiana", "lat": 30.9010, "lon": 75.8573, "pop": 3498000, "primary_hazard": "flood", "helpline": "1077"},
+        {"name": "Jalandhar", "hq": "Jalandhar", "lat": 31.3260, "lon": 75.5762, "pop": 2193000, "primary_hazard": "flood", "helpline": "1077"},
+        {"name": "Amritsar", "hq": "Amritsar", "lat": 31.6340, "lon": 74.8723, "pop": 2490000, "primary_hazard": "heatwave", "helpline": "1077"}
+      ]
+    },
+    {
+      "code": "HR",
+      "name": "Haryana",
+      "type": "State",
+      "districts": [
+        {"name": "Gurugram", "hq": "Gurugram", "lat": 28.4595, "lon": 77.0266, "pop": 1514000, "primary_hazard": "urban_flood", "helpline": "1077"},
+        {"name": "Faridabad", "hq": "Faridabad", "lat": 28.4089, "lon": 77.3178, "pop": 1809000, "primary_hazard": "urban_flood", "helpline": "1077"},
+        {"name": "Ambala", "hq": "Ambala", "lat": 30.3782, "lon": 76.7767, "pop": 1128000, "primary_hazard": "flood", "helpline": "1077"}
+      ]
+    },
+    {
+      "code": "MP",
+      "name": "Madhya Pradesh",
+      "type": "State",
+      "districts": [
+        {"name": "Bhopal", "hq": "Bhopal", "lat": 23.2599, "lon": 77.4126, "pop": 2371000, "primary_hazard": "urban_flood", "helpline": "1070"},
+        {"name": "Indore", "hq": "Indore", "lat": 22.7196, "lon": 75.8577, "pop": 3276000, "primary_hazard": "heatwave", "helpline": "1070"},
+        {"name": "Narmadapuram", "hq": "Narmadapuram", "lat": 22.7500, "lon": 77.7167, "pop": 1241000, "primary_hazard": "flood", "helpline": "1070"}
+      ]
+    },
+    {
+      "code": "CG",
+      "name": "Chhattisgarh",
+      "type": "State",
+      "districts": [
+        {"name": "Raipur", "hq": "Raipur", "lat": 21.2514, "lon": 81.6296, "pop": 2160000, "primary_hazard": "urban_flood", "helpline": "1070"},
+        {"name": "Bastar", "hq": "Jagdalpur", "lat": 19.0744, "lon": 82.0289, "pop": 834000, "primary_hazard": "flood", "helpline": "1070"}
+      ]
+    },
+    {
+      "code": "JH",
+      "name": "Jharkhand",
+      "type": "State",
+      "districts": [
+        {"name": "Ranchi", "hq": "Ranchi", "lat": 23.3441, "lon": 85.3096, "pop": 2914000, "primary_hazard": "flash_flood", "helpline": "1070"},
+        {"name": "Dhanbad", "hq": "Dhanbad", "lat": 23.7957, "lon": 86.4304, "pop": 2684000, "primary_hazard": "heatwave", "helpline": "1070"}
+      ]
+    },
+    {
+      "code": "HP",
+      "name": "Himachal Pradesh",
+      "type": "State",
+      "districts": [
+        {"name": "Shimla", "hq": "Shimla", "lat": 31.1048, "lon": 77.1734, "pop": 814000, "primary_hazard": "landslide", "helpline": "1077"},
+        {"name": "Mandi", "hq": "Mandi", "lat": 31.5892, "lon": 76.9182, "pop": 999000, "primary_hazard": "flash_flood", "helpline": "1077"},
+        {"name": "Kullu", "hq": "Kullu", "lat": 31.9579, "lon": 77.1095, "pop": 437000, "primary_hazard": "landslide", "helpline": "1077"}
+      ]
+    },
+    {
+      "code": "JK",
+      "name": "Jammu and Kashmir",
+      "type": "Union Territory",
+      "districts": [
+        {"name": "Srinagar", "hq": "Srinagar", "lat": 34.0837, "lon": 74.7973, "pop": 1236000, "primary_hazard": "flood", "helpline": "1070"},
+        {"name": "Jammu", "hq": "Jammu", "lat": 32.7266, "lon": 74.8570, "pop": 1529000, "primary_hazard": "flash_flood", "helpline": "1070"},
+        {"name": "Anantnag", "hq": "Anantnag", "lat": 33.7311, "lon": 75.1472, "pop": 1078000, "primary_hazard": "flood", "helpline": "1070"}
+      ]
+    },
+    {
+      "code": "LA",
+      "name": "Ladakh",
+      "type": "Union Territory",
+      "districts": [
+        {"name": "Leh", "hq": "Leh", "lat": 34.1526, "lon": 77.5771, "pop": 133000, "primary_hazard": "flash_flood", "helpline": "1077"},
+        {"name": "Kargil", "hq": "Kargil", "lat": 34.5539, "lon": 76.1312, "pop": 140000, "primary_hazard": "landslide", "helpline": "1077"}
+      ]
+    },
+    {
+      "code": "GA",
+      "name": "Goa",
+      "type": "State",
+      "districts": [
+        {"name": "North Goa", "hq": "Panaji", "lat": 15.4989, "lon": 73.8278, "pop": 818000, "primary_hazard": "urban_flood", "helpline": "1077"},
+        {"name": "South Goa", "hq": "Margao", "lat": 15.2736, "lon": 73.9581, "pop": 640000, "primary_hazard": "cyclone", "helpline": "1077"}
+      ]
+    },
+    {
+      "code": "PY",
+      "name": "Puducherry",
+      "type": "Union Territory",
+      "districts": [
+        {"name": "Puducherry", "hq": "Puducherry", "lat": 11.9416, "lon": 79.8083, "pop": 950000, "primary_hazard": "cyclone", "helpline": "1070"}
+      ]
+    },
+    {
+      "code": "CH",
+      "name": "Chandigarh",
+      "type": "Union Territory",
+      "districts": [
+        {"name": "Chandigarh", "hq": "Chandigarh", "lat": 30.7333, "lon": 76.7794, "pop": 1055000, "primary_hazard": "urban_flood", "helpline": "1077"}
+      ]
+    },
+    {
+      "code": "AN",
+      "name": "Andaman and Nicobar Islands",
+      "type": "Union Territory",
+      "districts": [
+        {"name": "South Andaman", "hq": "Port Blair", "lat": 11.6234, "lon": 92.7265, "pop": 238000, "primary_hazard": "cyclone", "helpline": "1077"}
+      ]
+    },
+    {
+      "code": "TR",
+      "name": "Tripura",
+      "type": "State",
+      "districts": [
+        {"name": "West Tripura", "hq": "Agartala", "lat": 23.8315, "lon": 91.2868, "pop": 918000, "primary_hazard": "flood", "helpline": "1070"}
+      ]
+    },
+    {
+      "code": "ML",
+      "name": "Meghalaya",
+      "type": "State",
+      "districts": [
+        {"name": "East Khasi Hills", "hq": "Shillong", "lat": 25.5788, "lon": 91.8933, "pop": 825000, "primary_hazard": "landslide", "helpline": "1070"}
+      ]
+    },
+    {
+      "code": "MN",
+      "name": "Manipur",
+      "type": "State",
+      "districts": [
+        {"name": "Imphal West", "hq": "Imphal", "lat": 24.8170, "lon": 93.9368, "pop": 518000, "primary_hazard": "flood", "helpline": "1070"}
+      ]
+    },
+    {
+      "code": "MZ",
+      "name": "Mizoram",
+      "type": "State",
+      "districts": [
+        {"name": "Aizawl", "hq": "Aizawl", "lat": 23.7271, "lon": 92.7176, "pop": 400000, "primary_hazard": "landslide", "helpline": "1070"}
+      ]
+    },
+    {
+      "code": "NL",
+      "name": "Nagaland",
+      "type": "State",
+      "districts": [
+        {"name": "Kohima", "hq": "Kohima", "lat": 25.6751, "lon": 94.1086, "pop": 267000, "primary_hazard": "landslide", "helpline": "1070"}
+      ]
+    },
+    {
+      "code": "SK",
+      "name": "Sikkim",
+      "type": "State",
+      "districts": [
+        {"name": "Gangtok", "hq": "Gangtok", "lat": 27.3389, "lon": 88.6065, "pop": 283000, "primary_hazard": "landslide", "helpline": "1070"}
+      ]
+    },
+    {
+      "code": "AR",
+      "name": "Arunachal Pradesh",
+      "type": "State",
+      "districts": [
+        {"name": "Papum Pare", "hq": "Itanagar", "lat": 27.1000, "lon": 93.6200, "pop": 176000, "primary_hazard": "landslide", "helpline": "1070"}
+      ]
+    },
+    {
+      "code": "DN",
+      "name": "Dadra and Nagar Haveli and Daman and Diu",
+      "type": "Union Territory",
+      "districts": [
+        {"name": "Daman", "hq": "Daman", "lat": 20.3974, "lon": 72.8328, "pop": 191000, "primary_hazard": "cyclone", "helpline": "1077"}
+      ]
+    },
+    {
+      "code": "LD",
+      "name": "Lakshadweep",
+      "type": "Union Territory",
+      "districts": [
+        {"name": "Kavaratti", "hq": "Kavaratti", "lat": 10.5667, "lon": 72.6417, "pop": 64000, "primary_hazard": "cyclone", "helpline": "1077"}
+      ]
+    }
+  ]
+}

@@ -229,10 +229,10 @@ class TestTools:
         from app.tools import load_tools, registry
 
         load_tools()
-        weather, _ = await registry.get("get_weather_conditions").invoke(
+        weather = await registry.get("get_weather_conditions").fetch_fallback(
             latitude=ALUVA.latitude, longitude=ALUVA.longitude, place="Aluva"
         )
-        rivers, _ = await registry.get("get_river_levels").invoke(
+        rivers = await registry.get("get_river_levels").fetch_fallback(
             latitude=ALUVA.latitude, longitude=ALUVA.longitude
         )
 
@@ -247,7 +247,7 @@ class TestTools:
         from app.tools import load_tools, registry
 
         load_tools()
-        result, _ = await registry.get("search_news").invoke(query="Aluva flood")
+        result = await registry.get("search_news").fetch_fallback(query="Aluva flood")
         assert result.data["article_count"] == 0
         assert result.data["feed_available"] is False
         assert "information_gap" in result.data

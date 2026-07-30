@@ -32,6 +32,8 @@ const AGENT_DESCRIPTIONS: Record<AgentRole, string> = {
   logistics:         "Manages warehouse inventories, transport fleet readiness, and supply chains.",
   volunteer:         "Mobilizes local first-responder networks and community rescue teams.",
   allocation:        "Runs linear optimization to pair supply depots with affected zones minimizing ETA.",
+  resource_allocation: "Optimizes allocation of emergency boats, water pumps, tents, and relief rations.",
+  news:              "Retrieves live open-source intelligence and news reports to corroborate field telemetry.",
   reflection:        "Performs autonomous self-audit, checking logic for unmet needs or doctrine violations.",
   communication:     "Generates public emergency alert bulletins and inter-agency coordination briefs.",
 };

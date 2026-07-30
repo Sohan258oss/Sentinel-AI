@@ -42,6 +42,61 @@ export const api = {
       method: "POST",
       body: JSON.stringify(payload),
     }),
+  nearestLocation: (lat: number, lon: number) =>
+    request<{
+      state: string;
+      district: string;
+      hq: string;
+      lat: number;
+      lon: number;
+      pop: number;
+      distance_km: number;
+    }>(`/india/nearest-location?lat=${lat}&lon=${lon}`),
+  indiaLocations: () =>
+    request<
+      Array<{
+        code: string;
+        name: string;
+        type: string;
+        districts: Array<{
+          name: string;
+          hq: string;
+          lat: number;
+          lon: number;
+          pop: number;
+          primary_hazard: string;
+          helpline: string;
+        }>;
+      }>
+    >("/india/locations"),
+  districtIntelligence: (state: string, district: string, hazard: string = "flood") =>
+    request<{
+      district_info: {
+        state: string;
+        state_code: string;
+        state_type: string;
+        district: string;
+        hq: string;
+        lat: number;
+        lon: number;
+        pop: number;
+        primary_hazard: string;
+        helpline: string;
+      };
+      facilities: {
+        hospitals: Array<any>;
+        shelters: Array<any>;
+        police_fire: Array<any>;
+        volunteer_hubs: Array<any>;
+      };
+      action_plan: {
+        disaster: string;
+        threat_level: string;
+        summary: string;
+        actions: Array<{ step: number; title: string; detail: string }>;
+        helplines: string[];
+      };
+    }>(`/india/district-intelligence?state=${encodeURIComponent(state)}&district=${encodeURIComponent(district)}&hazard=${encodeURIComponent(hazard)}`),
 };
 
 /**

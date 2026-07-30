@@ -12,7 +12,7 @@
       "lesson": "Aluva: shelter capacity was short by 4,574 during a severe flood. Pre-position additional capacity.",
       "evidence": "Flood \u2014 severe \u2014 Aluva",
       "source_incident_id": "INC-FLD-10530A",
-      "times_reinforced": 19,
+      "times_reinforced": 31,
       "created_at": "2026-07-28T09:25:04.769735Z"
     },
     {
@@ -27,7 +27,7 @@
       "lesson": "Aluva: these designated shelters are flood-exposed and should be reclassified: Aluva Government Higher Secondary School Camp, Nedumbassery Community Relief Centre, Angamaly Parish Community Centre.",
       "evidence": "Flood \u2014 severe \u2014 Aluva",
       "source_incident_id": "INC-FLD-10530A",
-      "times_reinforced": 19,
+      "times_reinforced": 31,
       "created_at": "2026-07-28T09:25:04.770416Z"
     },
     {
@@ -42,7 +42,7 @@
       "lesson": "Aluva: rescue_boat was short 55 for a severe flood. Increase pre-positioned stock.",
       "evidence": "Flood \u2014 severe \u2014 Aluva",
       "source_incident_id": "INC-FLD-10530A",
-      "times_reinforced": 57,
+      "times_reinforced": 93,
       "created_at": "2026-07-28T09:25:04.770594Z"
     },
     {
@@ -162,7 +162,7 @@
       "lesson": "Morigaon: shelter capacity was short by 24,806 during a severe flood. Pre-position additional capacity.",
       "evidence": "Flood \u2014 severe \u2014 Morigaon",
       "source_incident_id": "INC-FLD-2D81EB",
-      "times_reinforced": 2,
+      "times_reinforced": 3,
       "created_at": "2026-07-29T07:29:01.061139Z"
     },
     {
@@ -177,7 +177,7 @@
       "lesson": "Morigaon: reachable hospital capacity fell short by 174 beds during a flood. Pre-arrange inter-district transfer.",
       "evidence": "Flood \u2014 severe \u2014 Morigaon",
       "source_incident_id": "INC-FLD-2D81EB",
-      "times_reinforced": 2,
+      "times_reinforced": 3,
       "created_at": "2026-07-29T07:29:01.063146Z"
     },
     {
@@ -192,7 +192,7 @@
       "lesson": "Morigaon: rescue_boat was short 304 for a severe flood. Increase pre-positioned stock.",
       "evidence": "Flood \u2014 severe \u2014 Morigaon",
       "source_incident_id": "INC-FLD-2D81EB",
-      "times_reinforced": 6,
+      "times_reinforced": 9,
       "created_at": "2026-07-29T07:29:01.064755Z"
     },
     {
@@ -254,7 +254,427 @@
       "source_incident_id": "INC-LND-B94909",
       "times_reinforced": 6,
       "created_at": "2026-07-29T07:30:10.160800Z"
+    },
+    {
+      "lesson_id": "LSN-9DD637E4",
+      "hazard_type": "flood",
+      "region": "Puri",
+      "point": {
+        "latitude": 19.8135,
+        "longitude": 85.8312
+      },
+      "severity_seen": "severe",
+      "lesson": "Puri: shelter capacity was short by 5,222 during a severe flood. Pre-position additional capacity.",
+      "evidence": "Flood \u2014 severe \u2014 Puri",
+      "source_incident_id": "INC-6FF9CA1A",
+      "times_reinforced": 1,
+      "created_at": "2026-07-30T07:06:11.851843Z"
+    },
+    {
+      "lesson_id": "LSN-6C818919",
+      "hazard_type": "flood",
+      "region": "Puri",
+      "point": {
+        "latitude": 19.8135,
+        "longitude": 85.8312
+      },
+      "severity_seen": "severe",
+      "lesson": "Puri: reachable hospital capacity fell short by 35 beds during a flood. Pre-arrange inter-district transfer.",
+      "evidence": "Flood \u2014 severe \u2014 Puri",
+      "source_incident_id": "INC-6FF9CA1A",
+      "times_reinforced": 1,
+      "created_at": "2026-07-30T07:06:11.854377Z"
+    },
+    {
+      "lesson_id": "LSN-E2123751",
+      "hazard_type": "flood",
+      "region": "Puri",
+      "point": {
+        "latitude": 19.8135,
+        "longitude": 85.8312
+      },
+      "severity_seen": "severe",
+      "lesson": "Puri: rescue_boat was short 64 for a severe flood. Increase pre-positioned stock.",
+      "evidence": "Flood \u2014 severe \u2014 Puri",
+      "source_incident_id": "INC-6FF9CA1A",
+      "times_reinforced": 3,
+      "created_at": "2026-07-30T07:06:11.856977Z"
+    },
+    {
+      "lesson_id": "LSN-2B4F83E7",
+      "hazard_type": "flood",
+      "region": "Bangalore",
+      "point": {
+        "latitude": 26.1445,
+        "longitude": 91.7362
+      },
+      "severity_seen": "severe",
+      "lesson": "Bangalore: shelter capacity was short by 28,723 during a severe flood. Pre-position additional capacity.",
+      "evidence": "Flood \u2014 severe \u2014 Bangalore",
+      "source_incident_id": "INC-8949C05F",
+      "times_reinforced": 1,
+      "created_at": "2026-07-30T07:10:51.814140Z"
+    },
+    {
+      "lesson_id": "LSN-FCD5E81F",
+      "hazard_type": "flood",
+      "region": "Bangalore",
+      "point": {
+        "latitude": 26.1445,
+        "longitude": 91.7362
+      },
+      "severity_seen": "severe",
+      "lesson": "Bangalore: reachable hospital capacity fell short by 202 beds during a flood. Pre-arrange inter-district transfer.",
+      "evidence": "Flood \u2014 severe \u2014 Bangalore",
+      "source_incident_id": "INC-8949C05F",
+      "times_reinforced": 1,
+      "created_at": "2026-07-30T07:10:51.819175Z"
+    },
+    {
+      "lesson_id": "LSN-5F2A06CB",
+      "hazard_type": "flood",
+      "region": "Bangalore",
+      "point": {
+        "latitude": 26.1445,
+        "longitude": 91.7362
+      },
+      "severity_seen": "severe",
+      "lesson": "Bangalore: rescue_boat was short 352 for a severe flood. Increase pre-positioned stock.",
+      "evidence": "Flood \u2014 severe \u2014 Bangalore",
+      "source_incident_id": "INC-8949C05F",
+      "times_reinforced": 3,
+      "created_at": "2026-07-30T07:10:51.822930Z"
+    },
+    {
+      "lesson_id": "LSN-86B4A730",
+      "hazard_type": "urban_flood",
+      "region": "Kamrup Metropolitan",
+      "point": {
+        "latitude": 26.1445,
+        "longitude": 91.7362
+      },
+      "severity_seen": "minor",
+      "lesson": "Kamrup Metropolitan: rescue_boat was short 2 for a minor urban_flood. Increase pre-positioned stock.",
+      "evidence": "Urban Flood \u2014 minor \u2014 Kamrup Metropolitan",
+      "source_incident_id": "INC-39E9D07F",
+      "times_reinforced": 63,
+      "created_at": "2026-07-30T08:34:57.122381Z"
+    },
+    {
+      "lesson_id": "LSN-94F810FE",
+      "hazard_type": "wildfire",
+      "region": "Kamrup Metropolitan",
+      "point": {
+        "latitude": 26.1445,
+        "longitude": 91.7362
+      },
+      "severity_seen": "minor",
+      "lesson": "Kamrup Metropolitan: shelter capacity was short by 134 during a minor wildfire. Pre-position additional capacity.",
+      "evidence": "Wildfire \u2014 minor \u2014 Kamrup Metropolitan",
+      "source_incident_id": "INC-D6BABAEE",
+      "times_reinforced": 1,
+      "created_at": "2026-07-30T08:36:16.817393Z"
+    },
+    {
+      "lesson_id": "LSN-692458E3",
+      "hazard_type": "wildfire",
+      "region": "Kamrup Metropolitan",
+      "point": {
+        "latitude": 26.1445,
+        "longitude": 91.7362
+      },
+      "severity_seen": "minor",
+      "lesson": "Kamrup Metropolitan: drinking_water_litre was short 4,020 for a minor wildfire. Increase pre-positioned stock.",
+      "evidence": "Wildfire \u2014 minor \u2014 Kamrup Metropolitan",
+      "source_incident_id": "INC-D6BABAEE",
+      "times_reinforced": 3,
+      "created_at": "2026-07-30T08:36:16.819520Z"
+    },
+    {
+      "lesson_id": "LSN-E66FBC75",
+      "hazard_type": "earthquake",
+      "region": "Kamrup Metropolitan",
+      "point": {
+        "latitude": 26.1445,
+        "longitude": 91.7362
+      },
+      "severity_seen": "minor",
+      "lesson": "Kamrup Metropolitan: reachable hospital capacity fell short by 20 beds during a earthquake. Pre-arrange inter-district transfer.",
+      "evidence": "Earthquake \u2014 minor \u2014 Kamrup Metropolitan",
+      "source_incident_id": "INC-E1BB3BD2",
+      "times_reinforced": 1,
+      "created_at": "2026-07-30T08:36:50.602310Z"
+    },
+    {
+      "lesson_id": "LSN-667C9353",
+      "hazard_type": "earthquake",
+      "region": "Kamrup Metropolitan",
+      "point": {
+        "latitude": 26.1445,
+        "longitude": 91.7362
+      },
+      "severity_seen": "minor",
+      "lesson": "Kamrup Metropolitan: ambulance was short 3 for a minor earthquake. Increase pre-positioned stock.",
+      "evidence": "Earthquake \u2014 minor \u2014 Kamrup Metropolitan",
+      "source_incident_id": "INC-E1BB3BD2",
+      "times_reinforced": 3,
+      "created_at": "2026-07-30T08:36:50.604766Z"
+    },
+    {
+      "lesson_id": "LSN-C4B3B54A",
+      "hazard_type": "flood",
+      "region": "Kedarnath / Chamoli",
+      "point": {
+        "latitude": 30.7346,
+        "longitude": 79.0669
+      },
+      "severity_seen": "severe",
+      "lesson": "Kedarnath / Chamoli: shelter capacity was short by 6,528 during a severe flood. Pre-position additional capacity.",
+      "evidence": "Flood \u2014 severe \u2014 Kedarnath / Chamoli",
+      "source_incident_id": "INC-4509B8C8",
+      "times_reinforced": 1,
+      "created_at": "2026-07-30T08:49:51.404956Z"
+    },
+    {
+      "lesson_id": "LSN-B6A54644",
+      "hazard_type": "flood",
+      "region": "Kedarnath / Chamoli",
+      "point": {
+        "latitude": 30.7346,
+        "longitude": 79.0669
+      },
+      "severity_seen": "severe",
+      "lesson": "Kedarnath / Chamoli: reachable hospital capacity fell short by 45 beds during a flood. Pre-arrange inter-district transfer.",
+      "evidence": "Flood \u2014 severe \u2014 Kedarnath / Chamoli",
+      "source_incident_id": "INC-4509B8C8",
+      "times_reinforced": 1,
+      "created_at": "2026-07-30T08:49:51.407802Z"
+    },
+    {
+      "lesson_id": "LSN-40B912FA",
+      "hazard_type": "flood",
+      "region": "Kedarnath / Chamoli",
+      "point": {
+        "latitude": 30.7346,
+        "longitude": 79.0669
+      },
+      "severity_seen": "severe",
+      "lesson": "Kedarnath / Chamoli: rescue_boat was short 80 for a severe flood. Increase pre-positioned stock.",
+      "evidence": "Flood \u2014 severe \u2014 Kedarnath / Chamoli",
+      "source_incident_id": "INC-4509B8C8",
+      "times_reinforced": 3,
+      "created_at": "2026-07-30T08:49:51.410357Z"
+    },
+    {
+      "lesson_id": "LSN-9EE1E161",
+      "hazard_type": "flood",
+      "region": "Pune",
+      "point": {
+        "latitude": 18.5204,
+        "longitude": 73.8567
+      },
+      "severity_seen": "minor",
+      "lesson": "Pune: shelter capacity was short by 1,231 during a minor flood. Pre-position additional capacity.",
+      "evidence": "Flood \u2014 minor \u2014 Pune",
+      "source_incident_id": "INC-11016F5C",
+      "times_reinforced": 1,
+      "created_at": "2026-07-30T08:50:42.165963Z"
+    },
+    {
+      "lesson_id": "LSN-E87142B6",
+      "hazard_type": "flood",
+      "region": "Pune",
+      "point": {
+        "latitude": 18.5204,
+        "longitude": 73.8567
+      },
+      "severity_seen": "minor",
+      "lesson": "Pune: rescue_boat was short 16 for a minor flood. Increase pre-positioned stock.",
+      "evidence": "Flood \u2014 minor \u2014 Pune",
+      "source_incident_id": "INC-11016F5C",
+      "times_reinforced": 3,
+      "created_at": "2026-07-30T08:50:42.168620Z"
+    },
+    {
+      "lesson_id": "LSN-7E1F4305",
+      "hazard_type": "urban_flood",
+      "region": "Bengaluru Urban",
+      "point": {
+        "latitude": 12.9716,
+        "longitude": 77.5946
+      },
+      "severity_seen": "minor",
+      "lesson": "Bengaluru Urban: rescue_boat was short 13 for a minor urban_flood. Increase pre-positioned stock.",
+      "evidence": "Urban Flood \u2014 minor \u2014 Bengaluru Urban",
+      "source_incident_id": "INC-A5293CA8",
+      "times_reinforced": 51,
+      "created_at": "2026-07-30T09:06:03.741384Z"
+    },
+    {
+      "lesson_id": "LSN-1E0D8BD1",
+      "hazard_type": "flood",
+      "region": "Kamrup Metropolitan",
+      "point": {
+        "latitude": 26.1445,
+        "longitude": 91.7362
+      },
+      "severity_seen": "moderate",
+      "lesson": "Kamrup Metropolitan: shelter capacity was short by 1,566 during a moderate flood. Pre-position additional capacity.",
+      "evidence": "Flood \u2014 moderate \u2014 Kamrup Metropolitan",
+      "source_incident_id": "INC-958AE131",
+      "times_reinforced": 2,
+      "created_at": "2026-07-30T12:03:35.070696Z"
+    },
+    {
+      "lesson_id": "LSN-A52F37D9",
+      "hazard_type": "flood",
+      "region": "Kamrup Metropolitan",
+      "point": {
+        "latitude": 26.1445,
+        "longitude": 91.7362
+      },
+      "severity_seen": "moderate",
+      "lesson": "Kamrup Metropolitan: reachable hospital capacity fell short by 13 beds during a flood. Pre-arrange inter-district transfer.",
+      "evidence": "Flood \u2014 moderate \u2014 Kamrup Metropolitan",
+      "source_incident_id": "INC-958AE131",
+      "times_reinforced": 2,
+      "created_at": "2026-07-30T12:03:35.075798Z"
+    },
+    {
+      "lesson_id": "LSN-98D19A6E",
+      "hazard_type": "flood",
+      "region": "Kamrup Metropolitan",
+      "point": {
+        "latitude": 26.1445,
+        "longitude": 91.7362
+      },
+      "severity_seen": "moderate",
+      "lesson": "Kamrup Metropolitan: rescue_boat was short 20 for a moderate flood. Increase pre-positioned stock.",
+      "evidence": "Flood \u2014 moderate \u2014 Kamrup Metropolitan",
+      "source_incident_id": "INC-958AE131",
+      "times_reinforced": 6,
+      "created_at": "2026-07-30T12:03:35.079005Z"
+    },
+    {
+      "lesson_id": "LSN-35530184",
+      "hazard_type": "flood",
+      "region": "Bengaluru Urban",
+      "point": {
+        "latitude": 12.9716,
+        "longitude": 77.5946
+      },
+      "severity_seen": "minor",
+      "lesson": "Bengaluru Urban: shelter capacity was short by 97 during a minor flood. Pre-position additional capacity.",
+      "evidence": "Flood \u2014 minor \u2014 Bengaluru Urban",
+      "source_incident_id": "INC-1435B62C",
+      "times_reinforced": 3,
+      "created_at": "2026-07-30T12:30:32.730814Z"
+    },
+    {
+      "lesson_id": "LSN-924836F1",
+      "hazard_type": "flood",
+      "region": "Bengaluru Urban",
+      "point": {
+        "latitude": 12.9716,
+        "longitude": 77.5946
+      },
+      "severity_seen": "minor",
+      "lesson": "Bengaluru Urban: rescue_boat was short 2 for a minor flood. Increase pre-positioned stock.",
+      "evidence": "Flood \u2014 minor \u2014 Bengaluru Urban",
+      "source_incident_id": "INC-1435B62C",
+      "times_reinforced": 9,
+      "created_at": "2026-07-30T12:30:32.734783Z"
+    },
+    {
+      "lesson_id": "LSN-99E36714",
+      "hazard_type": "cyclone",
+      "region": "Bengaluru Urban",
+      "point": {
+        "latitude": 12.9716,
+        "longitude": 77.5946
+      },
+      "severity_seen": "minor",
+      "lesson": "Bengaluru Urban: shelter capacity was short by 106 during a minor cyclone. Pre-position additional capacity.",
+      "evidence": "Cyclone \u2014 minor \u2014 Bengaluru Urban",
+      "source_incident_id": "INC-A07BAC2B",
+      "times_reinforced": 3,
+      "created_at": "2026-07-30T12:33:53.345359Z"
+    },
+    {
+      "lesson_id": "LSN-FE8E86D0",
+      "hazard_type": "cyclone",
+      "region": "Bengaluru Urban",
+      "point": {
+        "latitude": 12.9716,
+        "longitude": 77.5946
+      },
+      "severity_seen": "minor",
+      "lesson": "Bengaluru Urban: rescue_boat was short 2 for a minor cyclone. Increase pre-positioned stock.",
+      "evidence": "Cyclone \u2014 minor \u2014 Bengaluru Urban",
+      "source_incident_id": "INC-A07BAC2B",
+      "times_reinforced": 9,
+      "created_at": "2026-07-30T12:33:53.348226Z"
+    },
+    {
+      "lesson_id": "LSN-600D0FDC",
+      "hazard_type": "earthquake",
+      "region": "Bengaluru Urban",
+      "point": {
+        "latitude": 12.9716,
+        "longitude": 77.5946
+      },
+      "severity_seen": "minor",
+      "lesson": "Bengaluru Urban: reachable hospital capacity fell short by 13 beds during a earthquake. Pre-arrange inter-district transfer.",
+      "evidence": "Earthquake \u2014 minor \u2014 Bengaluru Urban",
+      "source_incident_id": "INC-E0364603",
+      "times_reinforced": 3,
+      "created_at": "2026-07-30T12:53:03.485247Z"
+    },
+    {
+      "lesson_id": "LSN-2773D823",
+      "hazard_type": "earthquake",
+      "region": "Bengaluru Urban",
+      "point": {
+        "latitude": 12.9716,
+        "longitude": 77.5946
+      },
+      "severity_seen": "minor",
+      "lesson": "Bengaluru Urban: ambulance was short 2 for a minor earthquake. Increase pre-positioned stock.",
+      "evidence": "Earthquake \u2014 minor \u2014 Bengaluru Urban",
+      "source_incident_id": "INC-E0364603",
+      "times_reinforced": 9,
+      "created_at": "2026-07-30T12:53:03.487996Z"
+    },
+    {
+      "lesson_id": "LSN-F68A3C3E",
+      "hazard_type": "flood",
+      "region": "Chennai",
+      "point": {
+        "latitude": 13.0827,
+        "longitude": 80.2707
+      },
+      "severity_seen": "minor",
+      "lesson": "Chennai: shelter capacity was short by 97 during a minor flood. Pre-position additional capacity.",
+      "evidence": "Flood \u2014 minor \u2014 Chennai",
+      "source_incident_id": "INC-1DC8362A",
+      "times_reinforced": 1,
+      "created_at": "2026-07-30T12:55:45.075700Z"
+    },
+    {
+      "lesson_id": "LSN-DDA69FA3",
+      "hazard_type": "flood",
+      "region": "Chennai",
+      "point": {
+        "latitude": 13.0827,
+        "longitude": 80.2707
+      },
+      "severity_seen": "minor",
+      "lesson": "Chennai: rescue_boat was short 2 for a minor flood. Increase pre-positioned stock.",
+      "evidence": "Flood \u2014 minor \u2014 Chennai",
+      "source_incident_id": "INC-1DC8362A",
+      "times_reinforced": 3,
+      "created_at": "2026-07-30T12:55:45.078701Z"
     }
   ],
-  "updated_at": "2026-07-30T05:25:00.652663+00:00"
+  "updated_at": "2026-07-30T13:21:45.361500+00:00"
 }

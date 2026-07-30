@@ -43,6 +43,8 @@ export const AGENT_LABEL: Record<AgentRole, string> = {
   logistics: "Logistics",
   volunteer: "Volunteers",
   allocation: "Resource Allocation",
+  resource_allocation: "Resource Allocation",
+  news: "OSINT News Agent",
   reflection: "Reflection",
   communication: "Communication",
 };
@@ -59,6 +61,8 @@ export const AGENT_GLYPH: Record<AgentRole, string> = {
   logistics: "LG",
   volunteer: "VL",
   allocation: "RA",
+  resource_allocation: "RA",
+  news: "NW",
   reflection: "RF",
   communication: "CM",
 };

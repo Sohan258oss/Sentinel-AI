@@ -1,0 +1,188 @@
+{
+  "hospitals_preset": [
+    {
+      "id": "HOSP-AIIMS-DELHI",
+      "name": "AIIMS Emergency & Trauma Centre",
+      "state": "Delhi NCR",
+      "district": "Central Delhi",
+      "address": "Ansari Nagar, New Delhi",
+      "contact": "+91-11-26588500",
+      "lat": 28.5672,
+      "lon": 77.2100,
+      "icu_beds": 120,
+      "icu_available": 18,
+      "total_beds": 2478,
+      "ventilators": 85,
+      "oxygen_capacity_litres": 50000,
+      "trauma_center": true
+    },
+    {
+      "id": "HOSP-GMCH-GUWAHATI",
+      "name": "Guwahati Medical College Hospital (GMCH)",
+      "state": "Assam",
+      "district": "Kamrup Metropolitan",
+      "address": "Bhangagarh, Guwahati",
+      "contact": "+91-361-2529457",
+      "lat": 26.1558,
+      "lon": 91.7675,
+      "icu_beds": 45,
+      "icu_available": 6,
+      "total_beds": 1400,
+      "ventilators": 32,
+      "oxygen_capacity_litres": 20000,
+      "trauma_center": true
+    },
+    {
+      "id": "HOSP-SCB-CUTTACK",
+      "name": "SCB Medical College & Hospital",
+      "state": "Odisha",
+      "district": "Cuttack",
+      "address": "Mangalabag, Cuttack",
+      "contact": "+91-671-2414080",
+      "lat": 20.4789,
+      "lon": 85.8752,
+      "icu_beds": 60,
+      "icu_available": 9,
+      "total_beds": 2100,
+      "ventilators": 40,
+      "oxygen_capacity_litres": 30000,
+      "trauma_center": true
+    },
+    {
+      "id": "HOSP-PURI-DISTRICT",
+      "name": "District Headquarters Hospital Puri",
+      "state": "Odisha",
+      "district": "Puri",
+      "address": "Grand Road, Puri",
+      "contact": "+91-6752-222072",
+      "lat": 19.8145,
+      "lon": 85.8320,
+      "icu_beds": 20,
+      "icu_available": 3,
+      "total_beds": 450,
+      "ventilators": 12,
+      "oxygen_capacity_litres": 8000,
+      "trauma_center": false
+    },
+    {
+      "id": "HOSP-KEM-MUMBAI",
+      "name": "Seth GS Medical College & KEM Hospital",
+      "state": "Maharashtra",
+      "district": "Mumbai Suburban",
+      "address": "Parel, Mumbai",
+      "contact": "+91-22-24107000",
+      "lat": 19.0028,
+      "lon": 72.8423,
+      "icu_beds": 80,
+      "icu_available": 11,
+      "total_beds": 1800,
+      "ventilators": 55,
+      "oxygen_capacity_litres": 40000,
+      "trauma_center": true
+    },
+    {
+      "id": "HOSP-AIIMS-RISHIKESH",
+      "name": "AIIMS Disaster Trauma Center Rishikesh",
+      "state": "Uttarakhand",
+      "district": "Rudraprayag",
+      "address": "Virbhadra Road, Rishikesh",
+      "contact": "+91-135-2462929",
+      "lat": 30.0768,
+      "lon": 78.2882,
+      "icu_beds": 50,
+      "icu_available": 14,
+      "total_beds": 960,
+      "ventilators": 30,
+      "oxygen_capacity_litres": 25000,
+      "trauma_center": true
+    }
+  ],
+  "shelters_preset": [
+    {
+      "id": "SHELTER-PURI-CYCLONE-1",
+      "name": "Multipurpose Cyclone Shelter Puri Beach",
+      "state": "Odisha",
+      "district": "Puri",
+      "address": "Chakratirth Road, Puri",
+      "capacity": 1500,
+      "current_occupancy": 320,
+      "generator_backup": true,
+      "drinking_water": "15,000 Litres",
+      "contact": "+91-6752-223400"
+    },
+    {
+      "id": "SHELTER-GUWAHATI-FLOOD",
+      "name": "Disaster Relief Shelter Sonapur High School",
+      "state": "Assam",
+      "district": "Kamrup Metropolitan",
+      "address": "Sonapur, Guwahati",
+      "capacity": 2000,
+      "current_occupancy": 450,
+      "generator_backup": true,
+      "drinking_water": "20,000 Litres",
+      "contact": "+91-361-289012"
+    },
+    {
+      "id": "SHELTER-MUMBAI-COMMUNITY",
+      "name": "Dharavi Municipal Emergency Shelter",
+      "state": "Maharashtra",
+      "district": "Mumbai Suburban",
+      "address": "Dharavi Complex, Mumbai",
+      "capacity": 3000,
+      "current_occupancy": 890,
+      "generator_backup": true,
+      "drinking_water": "30,000 Litres",
+      "contact": "+91-22-2407890"
+    },
+    {
+      "id": "SHELTER-KEDARNATH-HELI",
+      "name": "High-Altitude Rescue Base Helipad Shelter",
+      "state": "Uttarakhand",
+      "district": "Rudraprayag",
+      "address": "Sonprayag Base, Rudraprayag",
+      "capacity": 800,
+      "current_occupancy": 120,
+      "generator_backup": true,
+      "drinking_water": "10,000 Litres",
+      "contact": "+91-1364-23345"
+    }
+  ],
+  "police_fire_preset": [
+    {
+      "id": "POLICE-HQ-GUWAHATI",
+      "type": "police",
+      "name": "Panbazar Central Police Station",
+      "district": "Kamrup Metropolitan",
+      "contact": "112 / +91-361-2540138",
+      "vehicles": 14,
+      "personnel": 85
+    },
+    {
+      "id": "FIRE-HQ-GUWAHATI",
+      "type": "fire",
+      "name": "State Fire Services Station Guwahati",
+      "district": "Kamrup Metropolitan",
+      "contact": "101 / +91-361-2540222",
+      "fire_tenders": 10,
+      "rescuers": 45
+    },
+    {
+      "id": "POLICE-PURI-TOWN",
+      "type": "police",
+      "name": "Town Police Station Puri",
+      "district": "Puri",
+      "contact": "112 / +91-6752-222033",
+      "vehicles": 12,
+      "personnel": 70
+    },
+    {
+      "id": "FIRE-PURI-MAIN",
+      "type": "fire",
+      "name": "Puri Fire Station Headquarters",
+      "district": "Puri",
+      "contact": "101 / +91-6752-222088",
+      "fire_tenders": 8,
+      "rescuers": 38
+    }
+  ]
+}
