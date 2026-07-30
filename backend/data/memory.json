@@ -597,7 +597,7 @@
       "lesson": "Bengaluru Urban: shelter capacity was short by 106 during a minor cyclone. Pre-position additional capacity.",
       "evidence": "Cyclone \u2014 minor \u2014 Bengaluru Urban",
       "source_incident_id": "INC-A07BAC2B",
-      "times_reinforced": 4,
+      "times_reinforced": 5,
       "created_at": "2026-07-30T12:33:53.345359Z"
     },
     {
@@ -612,7 +612,7 @@
       "lesson": "Bengaluru Urban: rescue_boat was short 2 for a minor cyclone. Increase pre-positioned stock.",
       "evidence": "Cyclone \u2014 minor \u2014 Bengaluru Urban",
       "source_incident_id": "INC-A07BAC2B",
-      "times_reinforced": 12,
+      "times_reinforced": 15,
       "created_at": "2026-07-30T12:33:53.348226Z"
     },
     {
@@ -627,7 +627,7 @@
       "lesson": "Bengaluru Urban: reachable hospital capacity fell short by 13 beds during a earthquake. Pre-arrange inter-district transfer.",
       "evidence": "Earthquake \u2014 minor \u2014 Bengaluru Urban",
       "source_incident_id": "INC-E0364603",
-      "times_reinforced": 10,
+      "times_reinforced": 12,
       "created_at": "2026-07-30T12:53:03.485247Z"
     },
     {
@@ -642,7 +642,7 @@
       "lesson": "Bengaluru Urban: ambulance was short 2 for a minor earthquake. Increase pre-positioned stock.",
       "evidence": "Earthquake \u2014 minor \u2014 Bengaluru Urban",
       "source_incident_id": "INC-E0364603",
-      "times_reinforced": 30,
+      "times_reinforced": 36,
       "created_at": "2026-07-30T12:53:03.487996Z"
     },
     {
@@ -674,7 +674,97 @@
       "source_incident_id": "INC-1DC8362A",
       "times_reinforced": 3,
       "created_at": "2026-07-30T12:55:45.078701Z"
+    },
+    {
+      "lesson_id": "LSN-CFAEF56E",
+      "hazard_type": "cyclone",
+      "region": "Amritsar",
+      "point": {
+        "latitude": 17.0005,
+        "longitude": 81.804
+      },
+      "severity_seen": "minor",
+      "lesson": "Amritsar: shelter capacity was short by 106 during a minor cyclone. Pre-position additional capacity.",
+      "evidence": "Cyclone \u2014 minor \u2014 Amritsar",
+      "source_incident_id": "INC-2B654181",
+      "times_reinforced": 1,
+      "created_at": "2026-07-30T16:06:20.129473Z"
+    },
+    {
+      "lesson_id": "LSN-309123BA",
+      "hazard_type": "cyclone",
+      "region": "Amritsar",
+      "point": {
+        "latitude": 17.0005,
+        "longitude": 81.804
+      },
+      "severity_seen": "minor",
+      "lesson": "Amritsar: rescue_boat was short 2 for a minor cyclone. Increase pre-positioned stock.",
+      "evidence": "Cyclone \u2014 minor \u2014 Amritsar",
+      "source_incident_id": "INC-2B654181",
+      "times_reinforced": 3,
+      "created_at": "2026-07-30T16:06:20.132587Z"
+    },
+    {
+      "lesson_id": "LSN-70509FCE",
+      "hazard_type": "cyclone",
+      "region": "Mumbai City",
+      "point": {
+        "latitude": 18.9388,
+        "longitude": 72.8353
+      },
+      "severity_seen": "minor",
+      "lesson": "Mumbai City: shelter capacity was short by 106 during a minor cyclone. Pre-position additional capacity.",
+      "evidence": "Cyclone \u2014 minor \u2014 Mumbai City",
+      "source_incident_id": "INC-EE8117EC",
+      "times_reinforced": 1,
+      "created_at": "2026-07-30T16:39:58.179881Z"
+    },
+    {
+      "lesson_id": "LSN-4F8D4EB1",
+      "hazard_type": "cyclone",
+      "region": "Mumbai City",
+      "point": {
+        "latitude": 18.9388,
+        "longitude": 72.8353
+      },
+      "severity_seen": "minor",
+      "lesson": "Mumbai City: rescue_boat was short 2 for a minor cyclone. Increase pre-positioned stock.",
+      "evidence": "Cyclone \u2014 minor \u2014 Mumbai City",
+      "source_incident_id": "INC-EE8117EC",
+      "times_reinforced": 3,
+      "created_at": "2026-07-30T16:39:58.182689Z"
+    },
+    {
+      "lesson_id": "LSN-4A1FEAD7",
+      "hazard_type": "flood",
+      "region": "Amritsar",
+      "point": {
+        "latitude": 31.634,
+        "longitude": 74.8723
+      },
+      "severity_seen": "minor",
+      "lesson": "Amritsar: shelter capacity was short by 97 during a minor flood. Pre-position additional capacity.",
+      "evidence": "Flood \u2014 minor \u2014 Amritsar",
+      "source_incident_id": "INC-02F6AC9E",
+      "times_reinforced": 1,
+      "created_at": "2026-07-30T16:40:12.645207Z"
+    },
+    {
+      "lesson_id": "LSN-788E1AC5",
+      "hazard_type": "flood",
+      "region": "Amritsar",
+      "point": {
+        "latitude": 31.634,
+        "longitude": 74.8723
+      },
+      "severity_seen": "minor",
+      "lesson": "Amritsar: rescue_boat was short 2 for a minor flood. Increase pre-positioned stock.",
+      "evidence": "Flood \u2014 minor \u2014 Amritsar",
+      "source_incident_id": "INC-02F6AC9E",
+      "times_reinforced": 3,
+      "created_at": "2026-07-30T16:40:12.648171Z"
     }
   ],
-  "updated_at": "2026-07-30T15:39:22.695618+00:00"
+  "updated_at": "2026-07-30T16:40:12.654315+00:00"
 }
